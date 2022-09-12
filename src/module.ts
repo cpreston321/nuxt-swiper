@@ -24,9 +24,11 @@ export default defineNuxtModule<SwiperModuleOptions>({
     importComposables: false
   },
   setup (options, nuxt) {
+    let { styleLang } = options
+
     const logger = useLogger(name)
     const { modules, importComposables } = options
-    let { styleLang } = options
+
     const { resolve } = createResolver(import.meta.url)
     const runtimePath = resolve('./runtime')
 
@@ -63,16 +65,16 @@ export default defineNuxtModule<SwiperModuleOptions>({
     // Add Imports Swiper Modules.
     for (const [key, func] of Object.entries(swiper.default)) {
       // Turn key to snake-case.
-      const snakeCase = key
+      const snakeCase: string = key
         .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
         .replace(/^-/, '')
         .toLowerCase()
 
-      if (
-        // @ts-expect-error
-        (typeof func === 'function' && modules.includes(snakeCase)) ||
-        (typeof func === 'function' && modules === '*')
-      ) {
+      const hasModule =
+        modules === '*' ||
+        (Array.isArray(modules) && modules.includes(snakeCase as any))
+
+      if (hasModule) {
         addImports({
           name: key,
           as: `Swiper${key}`,

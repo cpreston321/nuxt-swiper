@@ -33,11 +33,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
-
       - name: Build Playground
         run: pnpm dev:build
+
+      - name: Build
+        run: pnpm build
 
   lint:
     runs-on: ${{ matrix.os }}

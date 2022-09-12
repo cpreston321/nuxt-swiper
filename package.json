@@ -1,0 +1,60 @@
+{
+  "name": "nuxt-swiper",
+  "version": "0.1.0",
+  "keywords": [
+    "vue",
+    "nuxt",
+    "nuxt3",
+    "nuxt-module",
+    "swiper",
+    "swiperjs",
+    "slides",
+    "slickjs alternative"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "repository": "cpreston321/nuxt-swiper",
+  "homepage": "https://github.com/cpreston321/nuxt-swiper#readme",
+  "author": {
+    "name": "cpreston321 <https://christianpreston.com>",
+    "url": "https://github.com/cpreston321"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "pnpm build",
+    "build": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0-rc.9",
+    "swiper": "^8.3.2"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "latest",
+    "@nuxt/schema": "^3.0.0-rc.9",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@typescript-eslint/parser": "^5.0.1",
+    "eslint": "^8.7.0",
+    "nuxt": "^3.0.0-rc.9",
+    "prettier": "^2.5.1",
+    "typescript": "^4.4.4",
+    "vue-eslint-parser": "^8.0.0"
+  },
+  "resolutions": {
+    "nuxt-swiper": "link:."
+  }
+}

@@ -31,7 +31,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Build
         run: pnpm build

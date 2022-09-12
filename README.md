@@ -21,6 +21,19 @@
 >
 > Checkout [Swiper.js](https://swiperjs.com/) for more information about how to use.
 
+## Install
+
+```bash
+# npm
+npm install nuxt-swiper
+
+# yarn
+yarn add nuxt-swiper
+
+#pnpm
+pnpm add nuxt-swiper
+```
+
 ## Features
 
 - 🚀 [Nuxt 3](https://v3.nuxtjs.org) Support
@@ -92,10 +105,9 @@ interface SwiperModuleOptions {
 ```ts
 // nuxt.config.ts
 import { defineNuxtModule } from 'nuxt'
-import nuxtSwiper from 'nuxt-swiper'
 
 export default defineNuxtConfig({
-  modules: [NuxtSwiper],
+  modules: ['nuxt-swiper'],
   swiper: {
     modules: ['navigation', 'pagination']
   }
@@ -105,7 +117,7 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
   modules: [
     [
-      NuxtSwiper,
+      'nuxt-swiper',
       {
         modules: ['navigation', 'pagination']
       }

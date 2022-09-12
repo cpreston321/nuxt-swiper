@@ -56,5 +56,6 @@
   },
   "resolutions": {
     "nuxt-swiper": "link:."
-  }
+  },
+  "packageManager": "pnpm@7.9.0"
 }

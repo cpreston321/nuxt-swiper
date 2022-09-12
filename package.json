@@ -37,7 +37,7 @@
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.9",

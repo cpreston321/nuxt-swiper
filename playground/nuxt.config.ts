@@ -1,11 +1,9 @@
 import { defineNuxtConfig } from 'nuxt'
-import NuxtSwiper from 'nuxt-swiper'
 
 export default defineNuxtConfig({
-  modules: [NuxtSwiper],
+  modules: ['nuxt-swiper'],
   swiper: {
-    styleLang: 'scss',
-    modules: '*',
-    importComposables: false
+    modules: ['autoplay', 'effect-creative'],
+    importComposables: true
   }
 })

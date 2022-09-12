@@ -11,7 +11,7 @@ const fakeArray = ref(colors)
 
 <template>
   <div>
-    <h1>Nuxt Swiper Playground</h1>
+    <h1>nuxt-swiper playground</h1>
     <ul>
       <li>
         Enabled Modules: <strong>[SwiperAutoplay, SwiperEffectCreative]</strong>

@@ -94,6 +94,9 @@ export default defineNuxtModule<SwiperModuleOptions>({
 })
 
 declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    swiper?: SwiperModuleOptions
+  }
   interface NuxtOptions {
     swiper?: SwiperModuleOptions
   }

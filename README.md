@@ -109,7 +109,7 @@ export default defineNuxtConfig({
 
 - Clone this repository
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `pnpm install`
+- Install dependencies using `pnpm install --shamefully-hoist`
 - Open playground with `pnpm dev`
 
 ## Credits

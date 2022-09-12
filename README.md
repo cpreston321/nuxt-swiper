@@ -6,6 +6,15 @@
   <a href="https://github.com/cpreston321/nuxt-swiper/actions?query=branch%3Amain+event%3Apush">
     <img alt="CI" src="https://github.com/cpreston321/nuxt-swiper/actions/workflows/ci.yml/badge.svg?branch=main"/>
   </a>
+  <a href="https://npmjs.com/package/nuxt-swiper">
+      <img alt="Version" src="https://img.shields.io/npm/v/nuxt-swiper?color=blue&style=flat-square"/>
+  </a>
+  <a href="https://npmjs.com/package/nuxt-swiper">
+      <img alt="Downloads" src="https://img.shields.io/npm/dt/nuxt-swiper?color=blue&style=flat-square"/>
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+      <img alt="MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"/>
+  </a>
 </p>
 
 > Fully featured Swiper.js module for Nuxt 3.
@@ -116,6 +125,16 @@ export default defineNuxtConfig({
 
 [`nuxt-swiper`](#nuxt-swiper) is developed by [@cpreston321](https://github.com/cpreston321).
 
-## License
+## 📜 License
 
 [MIT](./LICENSE) License © 2022 [cpreston321](https://github.com/cpreston321)
+
+# 📧 Contact
+
+cpreston321 - [@cpreston321](https://twitter.com/cpreston321)
+
+Also, if you like my work, please feel free to [buy me a coffee](https://www.buymeacoffee.com/cpreston321) ☕️
+
+<a href="https://www.buymeacoffee.com/cpreston321" target="_blank">
+  <img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Logo" >
+</a>

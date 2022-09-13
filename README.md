@@ -1,6 +1,6 @@
 <h1 align="center">nuxt-swiper</h1>
 
-<p align="center">Swiper.js built for Nuxt 3</p>
+<p align="center">Swiper.js built for Nuxt 3 </p>
 
 <p align="center">
   <a href="https://github.com/cpreston321/nuxt-swiper/actions?query=branch%3Amain+event%3Apush">
@@ -18,14 +18,15 @@
 </p>
 
 > Fully featured Swiper.js module for Nuxt 3.
->
 > Checkout [Swiper.js](https://swiperjs.com/) for more information about how to use.
 
 ## Features
 
 - 🚀 [Nuxt 3](https://v3.nuxtjs.org) Support
+- Open Source
 - Full Typescript Support
-- Auto import **Swiper.js** Modules + Styles
+- ✨ Auto import **Swiper.js** modules + styles.
+- ✨ Just works out of the box.
 
 ## Install
 
@@ -96,6 +97,17 @@ type SwiperModulesType =
  */
 interface SwiperModuleOptions {
   /**
+   * The prefix to use for the Swiper Modules to import.
+   * This is useful for importing only the modules you need and
+   * avoiding importing the entire Swiper library.
+   *
+   * e.g. `${prefix}Autoplay` -> `SwiperAutoplay`
+   *
+   * @default 'Swiper'
+   */
+  prefix?: string
+
+  /**
    * Which type of lang of styles to import
    *
    * ! This option is only works when `modules` is
@@ -109,20 +121,11 @@ interface SwiperModuleOptions {
    * Swiper modules to import
    *
    * '*' - imports all modules
-   * '['thumbs', 'lazy']' - imports only thumbs and lazy modules to keep bundle size small
+   * '['autoplay', 'effect-cards', 'thumbs', 'lazy']' - imports only these modules to keep bundle size small
    *
    * @default []
    */
   modules?: SwiperModulesType[] | '*'
-
-  /**
-   * Import Swiper Composables
-   *
-   * `useSwiper`, `useSwiperSlide`.
-   *
-   * @default true
-   */
-  importComposables?: boolean
 }
 ```
 
@@ -133,8 +136,19 @@ interface SwiperModuleOptions {
 - Install dependencies using `pnpm install --shamefully-hoist`
 - Open playground with `pnpm dev`
 
+## ➕ Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
 ## Credits
 
+[`swiper`](https://swiperjs.com/) is developed by [@nolimits4web](https://github.com/nolimits4web).
 [`nuxt-swiper`](#nuxt-swiper) is developed by [@cpreston321](https://github.com/cpreston321).
 
 ## 📜 License

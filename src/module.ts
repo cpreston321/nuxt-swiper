@@ -19,15 +19,15 @@ export default defineNuxtModule<SwiperModuleOptions>({
     configKey: 'swiper'
   },
   defaults: {
-    modules: [],
+    prefix: 'Swiper',
     styleLang: 'css',
-    importComposables: false
+    modules: []
   },
-  setup (options, nuxt) {
-    let { styleLang } = options
+  setup (_options, nuxt) {
+    let { styleLang } = _options
 
     const logger = useLogger(name)
-    const { modules, importComposables } = options
+    const { prefix, modules } = _options
 
     const { resolve } = createResolver(import.meta.url)
     const runtimePath = resolve('./runtime')
@@ -63,7 +63,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
     }
 
     // Add Imports Swiper Modules.
-    for (const [key, func] of Object.entries(swiper.default)) {
+    for (const [key, _] of Object.entries(swiper)) {
       // Turn key to snake-case.
       const snakeCase: string = key
         .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
@@ -74,19 +74,17 @@ export default defineNuxtModule<SwiperModuleOptions>({
         modules === '*' ||
         (Array.isArray(modules) && modules.includes(snakeCase as any))
 
-      if (hasModule) {
+      if (hasModule && key !== 'default') {
         addImports({
           name: key,
-          as: `Swiper${key}`,
+          as: `${prefix}${key}`,
           from: 'swiper'
         })
       }
     }
 
     // Add Composables imports from `swiper/vue`.
-    if (importComposables) {
-      addImportsDir(resolve(runtimePath, 'composables'))
-    }
+    addImportsDir(resolve(runtimePath, 'composables'))
 
     // Add Plugin
     addPlugin(resolve(runtimePath, 'plugin'))

@@ -4,8 +4,12 @@ const colors = Array.from({ length: 10 }, () => {
   const r = Math.floor(Math.random() * 256)
   const g = Math.floor(Math.random() * 256)
   const b = Math.floor(Math.random() * 256)
-  return `rgb(${r}, ${g}, ${b})`
+  // Figure out contrast color for font
+  const contrast = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? 'black' : 'white'
+
+  return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast }
 })
+
 const fakeArray = ref(colors)
 </script>
 
@@ -13,11 +17,13 @@ const fakeArray = ref(colors)
   <div>
     <h1>nuxt-swiper playground</h1>
     <ul>
+      <li>Prefix: <strong>Swiper</strong></li>
       <li>
         Enabled Modules: <strong>[SwiperAutoplay, SwiperEffectCreative]</strong>
       </li>
-      <li>Composables Enabled: <strong>true</strong></li>
     </ul>
+    <hr />
+    <h2>Swiper Creative Effect</h2>
     <Swiper
       :modules="[SwiperAutoplay, SwiperEffectCreative]"
       :slides-per-view="1"
@@ -38,9 +44,29 @@ const fakeArray = ref(colors)
       }"
     >
       <SwiperSlide
-        v-for="(bg, idx) in fakeArray"
+        v-for="(array, idx) in fakeArray"
         :key="idx"
-        :style="`background-color: ${bg}`"
+        :style="`background-color: ${array.bg}; color: ${array.color}`"
+      >
+        {{ idx }}
+      </SwiperSlide>
+    </Swiper>
+    <h2>Swiper Card Effect</h2>
+    <Swiper
+      class="swiper-cards"
+      :modules="[SwiperAutoplay, SwiperEffectCards]"
+      :slides-per-view="1"
+      :loop="true"
+      :effect="'cards'"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true
+      }"
+    >
+      <SwiperSlide
+        v-for="(array, idx) in fakeArray"
+        :key="idx"
+        :style="`background-color: ${array.bg}; color: ${array.color}`"
       >
         {{ idx }}
       </SwiperSlide>
@@ -56,8 +82,16 @@ const fakeArray = ref(colors)
   font-size: 18px;
   width: 100vh;
   height: 20vh;
-  color: #000;
   font-size: 4rem;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+.swiper-cards {
+  width: 240px;
+  height: 240px;
+}
+.swiper-cards .swiper-slide {
+  border-radius: 6px;
+  border: 1px solid black;
 }
 </style>

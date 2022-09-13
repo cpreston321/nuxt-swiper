@@ -24,6 +24,17 @@ type SwiperModulesType =
 
 export interface SwiperModuleOptions {
   /**
+   * The prefix to use for the Swiper Modules to import.
+   * This is useful for importing only the modules you need and
+   * avoiding importing the entire Swiper library.
+   *
+   * e.g. `${prefix}Autoplay` -> `SwiperAutoplay`
+   *
+   * @default 'Swiper'
+   */
+  prefix?: string
+
+  /**
    * Which type of lang of styles to import
    *
    * ! This option is only works when `modules` is
@@ -42,13 +53,4 @@ export interface SwiperModuleOptions {
    * @default []
    */
   modules?: SwiperModulesType[] | '*'
-
-  /**
-   * Import Swiper Composables
-   *
-   * `useSwiper`, `useSwiperSlide`.
-   *
-   * @default true
-   */
-  importComposables?: boolean
 }

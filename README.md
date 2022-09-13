@@ -51,23 +51,52 @@ pnpm add nuxt-swiper
 import { defineNuxtModule } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-swiper'],
+  modules: ['nuxt-swiper']
   swiper: {
-    modules: ['navigation', 'pagination']
+    // Swiper options
+    //----------------------
+    // prefix: 'Swiper',
+    // styleLang: 'css',
+    // modules: ['navigation', 'pagination'],
   }
 })
 
 // or inline config
 export default defineNuxtConfig({
-  modules: [
-    [
-      'nuxt-swiper',
-      {
-        modules: ['navigation', 'pagination']
-      }
-    ]
-  ]
+  modules: [['nuxt-swiper', {
+    // Swiper options
+  }]]
 })
+```
+
+## Usage
+
+```vue
+<template>
+  <Swiper
+    :modules="[SwiperAutoplay, SwiperEffectCreative]"
+    :slides-per-view="1"
+    :loop="true"
+    :effect="'creative'"
+    :autoplay="{
+      delay: 8000,
+      disableOnInteraction: true
+    }"
+    :creative-effect="{
+      prev: {
+        shadow: false,
+        translate: ['-20%', 0, -1]
+      },
+      next: {
+        translate: ['100%', 0, 0]
+      }
+    }"
+  >
+    <SwiperSlider v-for="slide in 10" :key="slide">
+      <strong>{{ slide }}</strong>
+    </SwiperSlider>
+  </Swiper>
+</template>
 ```
 
 ## Module Config Options
@@ -126,7 +155,7 @@ interface SwiperModuleOptions {
    * '*' - imports all modules
    * '['autoplay', 'effect-cards', 'thumbs', 'lazy']' - imports only these modules to keep bundle size small
    *
-   * @default []
+   * @default '*'
    */
   modules?: SwiperModulesType[] | '*'
 }

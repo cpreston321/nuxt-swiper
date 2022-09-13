@@ -50,7 +50,7 @@ export interface SwiperModuleOptions {
    * '*' - imports all modules
    * '['thumbs', 'lazy']' - imports only thumbs and lazy modules to keep bundle size small
    *
-   * @default []
+   * @default '*'
    */
   modules?: SwiperModulesType[] | '*'
 }

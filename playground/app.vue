@@ -1,4 +1,6 @@
 <script setup>
+import configOptions from '~/module.config'
+
 // Fill Array with random rgb values
 const colors = Array.from({ length: 10 }, () => {
   const r = Math.floor(Math.random() * 256)
@@ -16,10 +18,18 @@ const fakeArray = ref(colors)
 <template>
   <div>
     <h1>nuxt-swiper playground</h1>
+    <h3>Options</h3>
     <ul>
-      <li>Prefix: <strong>Swiper</strong></li>
       <li>
-        Enabled Modules: <strong>[SwiperAutoplay, SwiperEffectCreative]</strong>
+        Prefix: <strong>{{ JSON.stringify(configOptions.prefix) }}</strong>
+      </li>
+      <li>
+        Style Language:
+        <strong>{{ JSON.stringify(configOptions.styleLang) }}</strong>
+      </li>
+      <li>
+        Enabled Modules:
+        <strong>{{ JSON.stringify(configOptions.modules) }}</strong>
       </li>
     </ul>
     <hr />

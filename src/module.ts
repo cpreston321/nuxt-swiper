@@ -5,7 +5,6 @@ import {
   createResolver,
   useLogger,
   addImports,
-  addImportsDir,
   isNodeModules
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
@@ -32,37 +31,34 @@ export default defineNuxtModule<SwiperModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
     const runtimePath = resolve('./runtime')
 
+    // Add Imports Swiper Modules.
+    const imports = [
+      {
+        name: 'useSwiper',
+        as: 'useSwiper',
+        from: 'swiper/vue'
+      },
+      {
+        name: 'useSwiperSlide',
+        as: 'useSwiperSlide',
+        from: 'swiper/vue'
+      }
+    ]
+
     // Transpile Runtime
     nuxt.options.build.transpile.push(runtimePath)
 
-    // Import Swiper CSS Modules
-    if (typeof modules === 'string' && modules === '*') {
-      logger.warn(
-        '[nuxt-swiper]: `styleLang: "' +
-          styleLang +
-          '"` option ignored with `modules: "*"`.'
-      )
-      logger.warn(
-        '[nuxt-swiper]: importing all `swiper` modules is not recommended. This will increase bundle size for production.'
-      )
-      nuxt.options.css.push('swiper/css')
-      nuxt.options.css.push('swiper/css/bundle')
-    } else if (Array.isArray(modules) && modules.length > 0) {
-      if (styleLang === 'scss' && !isNodeModules('sass')) {
-        styleLang = 'css'
-        logger.warn(
-          '[nuxt-swiper]: You need to install `sass` to use the scss option. Falling back to `css`.'
-        )
-      }
+    // Push Core Styles
+    nuxt.options.css.push(`swiper/${styleLang}`)
 
-      nuxt.options.css.push(`swiper/${styleLang}`)
-
-      for (const module of modules) {
-        nuxt.options.css.push(`swiper/${styleLang}/${module}`)
-      }
+    // Detect if styleLang has been changed
+    if (styleLang === 'scss' && !isNodeModules('sass')) {
+      styleLang = 'css'
+      logger.warn(
+        '[nuxt-swiper]: You need to install `sass` to use the scss option. Falling back to `css`.'
+      )
     }
 
-    // Add Imports Swiper Modules.
     for (const [key, _] of Object.entries(swiper)) {
       // Turn key to snake-case.
       const snakeCase: string = key
@@ -74,8 +70,12 @@ export default defineNuxtModule<SwiperModuleOptions>({
         modules === '*' ||
         (Array.isArray(modules) && modules.includes(snakeCase as any))
 
-      if (hasModule && key !== 'default') {
-        addImports({
+      if (hasModule && !['default', 'Swiper'].includes(key)) {
+        // Push Styles for each module
+        nuxt.options.css.push(`swiper/${styleLang}/${snakeCase}`)
+
+        // Import Swiper Modules
+        imports.push({
           name: key,
           as: `${prefix}${key}`,
           from: 'swiper'
@@ -84,7 +84,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
     }
 
     // Add Composables imports from `swiper/vue`.
-    addImportsDir(resolve(runtimePath, 'composables'))
+    addImports(imports)
 
     // Add Plugin
     addPlugin(resolve(runtimePath, 'plugin'))

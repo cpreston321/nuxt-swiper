@@ -20,7 +20,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
   defaults: {
     prefix: 'Swiper',
     styleLang: 'css',
-    modules: []
+    modules: '*'
   },
   setup (_options, nuxt) {
     let { styleLang } = _options

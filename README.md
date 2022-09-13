@@ -85,7 +85,7 @@ export default defineNuxtConfig({
 | `SwiperA11y`            | ✅            |
 | `SwiperAutoplay`        | ✅            |
 | `SwiperController`      | ✅            |
-| `SwiperEffectSlide`     | ✅            |
+| `SwiperEffectCreative`  | ✅            |
 | `SwiperEffectCoverflow` | ✅            |
 | `SwiperEffectCube`      | ✅            |
 | `SwiperEffectFade`      | ✅            |

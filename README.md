@@ -71,6 +71,36 @@ export default defineNuxtConfig({
 
 ## Usage
 
+| Components       | Auto Imported |
+| ---------------- | ------------- |
+| `<Swiper/>`      | ✅            |
+| `<SwiperSlide/>` | ✅            |
+
+| **Default Prefix** | Modules                    | Auto Imported |
+| ------------------ | -------------------------- | ------------- |
+| `Swiper`           | `${prefix}A11y`            | ✅            |
+| `Swiper`           | `${prefix}Autoplay`        | ✅            |
+| `Swiper`           | `${prefix}CoverflowEffect` | ✅            |
+| `Swiper`           | `${prefix}Controller`      | ✅            |
+| `Swiper`           | `${prefix}CubeEffect`      | ✅            |
+| `Swiper`           | `${prefix}FadeEffect`      | ✅            |
+| `Swiper`           | `${prefix}FlipEffect`      | ✅            |
+| `Swiper`           | `${prefix}FreeMode`        | ✅            |
+| `Swiper`           | `${prefix}Grid`            | ✅            |
+| `Swiper`           | `${prefix}HashNavigation`  | ✅            |
+| `Swiper`           | `${prefix}History`         | ✅            |
+| `Swiper`           | `${prefix}Keyboard`        | ✅            |
+| `Swiper`           | `${prefix}Lazy`            | ✅            |
+| `Swiper`           | `${prefix}Mousewheel`      | ✅            |
+| `Swiper`           | `${prefix}Manipulation`    | ✅            |
+| `Swiper`           | `${prefix}Navigation`      | ✅            |
+| `Swiper`           | `${prefix}Pagination`      | ✅            |
+| `Swiper`           | `${prefix}Parallax`        | ✅            |
+| `Swiper`           | `${prefix}Scrollbar`       | ✅            |
+| `Swiper`           | `${prefix}Thumbs`          | ✅            |
+| `Swiper`           | `${prefix}Virtual`         | ✅            |
+| `Swiper`           | `${prefix}Zoom`            | ✅            |
+
 ```vue
 <template>
   <Swiper
@@ -92,14 +122,14 @@ export default defineNuxtConfig({
       }
     }"
   >
-    <SwiperSlider v-for="slide in 10" :key="slide">
+    <SwiperSlide v-for="slide in 10" :key="slide">
       <strong>{{ slide }}</strong>
-    </SwiperSlider>
+    </SwiperSlide>
   </Swiper>
 </template>
 ```
 
-## Module Config Options
+## Module Options
 
 ```ts
 type SwiperEffectType = 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip'

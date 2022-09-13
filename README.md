@@ -71,35 +71,39 @@ export default defineNuxtConfig({
 
 ## Usage
 
-| Components       | Auto Imported |
+| Component Name   | Auto Imported |
 | ---------------- | ------------- |
 | `<Swiper/>`      | ✅            |
 | `<SwiperSlide/>` | ✅            |
 
-| **Default Prefix** | Modules                    | Auto Imported |
-| ------------------ | -------------------------- | ------------- |
-| `Swiper`           | `${prefix}A11y`            | ✅            |
-| `Swiper`           | `${prefix}Autoplay`        | ✅            |
-| `Swiper`           | `${prefix}CoverflowEffect` | ✅            |
-| `Swiper`           | `${prefix}Controller`      | ✅            |
-| `Swiper`           | `${prefix}CubeEffect`      | ✅            |
-| `Swiper`           | `${prefix}FadeEffect`      | ✅            |
-| `Swiper`           | `${prefix}FlipEffect`      | ✅            |
-| `Swiper`           | `${prefix}FreeMode`        | ✅            |
-| `Swiper`           | `${prefix}Grid`            | ✅            |
-| `Swiper`           | `${prefix}HashNavigation`  | ✅            |
-| `Swiper`           | `${prefix}History`         | ✅            |
-| `Swiper`           | `${prefix}Keyboard`        | ✅            |
-| `Swiper`           | `${prefix}Lazy`            | ✅            |
-| `Swiper`           | `${prefix}Mousewheel`      | ✅            |
-| `Swiper`           | `${prefix}Manipulation`    | ✅            |
-| `Swiper`           | `${prefix}Navigation`      | ✅            |
-| `Swiper`           | `${prefix}Pagination`      | ✅            |
-| `Swiper`           | `${prefix}Parallax`        | ✅            |
-| `Swiper`           | `${prefix}Scrollbar`       | ✅            |
-| `Swiper`           | `${prefix}Thumbs`          | ✅            |
-| `Swiper`           | `${prefix}Virtual`         | ✅            |
-| `Swiper`           | `${prefix}Zoom`            | ✅            |
+**_Default Prefix: `Swiper`_**
+
+> You can change the prefix in the module options.
+
+| Module Name             | Auto Imported |
+| ----------------------- | ------------- |
+| `SwiperA11y`            | ✅            |
+| `SwiperAutoplay`        | ✅            |
+| `SwiperCoverflowEffect` | ✅            |
+| `SwiperController`      | ✅            |
+| `SwiperCubeEffect`      | ✅            |
+| `SwiperFadeEffect`      | ✅            |
+| `SwiperFlipEffect`      | ✅            |
+| `SwiperFreeMode`        | ✅            |
+| `SwiperGrid`            | ✅            |
+| `SwiperHashNavigation`  | ✅            |
+| `SwiperHistory`         | ✅            |
+| `SwiperKeyboard`        | ✅            |
+| `SwiperLazy`            | ✅            |
+| `SwiperMousewheel`      | ✅            |
+| `SwiperManipulation`    | ✅            |
+| `SwiperNavigation`      | ✅            |
+| `SwiperPagination`      | ✅            |
+| `SwiperParallax`        | ✅            |
+| `SwiperScrollbar`       | ✅            |
+| `SwiperThumbs`          | ✅            |
+| `SwiperVirtual`         | ✅            |
+| `SwiperZoom`            | ✅            |
 
 ```vue
 <template>

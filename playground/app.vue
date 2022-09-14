@@ -35,6 +35,7 @@ const fakeArray = ref(colors)
     <hr />
     <h2>Swiper Creative Effect</h2>
     <Swiper
+      :height="300"
       :modules="[SwiperAutoplay, SwiperEffectCreative]"
       :slides-per-view="1"
       :loop="true"
@@ -64,6 +65,7 @@ const fakeArray = ref(colors)
     <h2>Swiper Card Effect</h2>
     <Swiper
       class="swiper-cards"
+      :width="240"
       :modules="[SwiperAutoplay, SwiperEffectCards]"
       :slides-per-view="1"
       :loop="true"
@@ -90,11 +92,15 @@ const fakeArray = ref(colors)
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  width: 100vh;
+  /* width: 100%; */
   height: 20vh;
   font-size: 4rem;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
+}
+.swiper-wrapper {
+  max-width: 100vh;
+  width: 100vh;
 }
 .swiper-cards {
   width: 240px;

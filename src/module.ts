@@ -1,7 +1,7 @@
 import * as swiper from 'swiper'
 import {
   defineNuxtModule,
-  addPlugin,
+  addPluginTemplate,
   createResolver,
   useLogger,
   addImports,
@@ -28,11 +28,8 @@ export default defineNuxtModule<SwiperModuleOptions>({
     const logger = useLogger(name)
     const { prefix, modules } = _options
 
-    const { resolve } = createResolver(import.meta.url)
-    const runtimePath = resolve('./runtime')
-
-    // Add Imports Swiper Modules.
-    const imports = [
+    const cssImports = [`import 'swiper/${styleLang}'`]
+    const moduleImports = [
       {
         name: 'useSwiper',
         as: 'useSwiper',
@@ -44,12 +41,6 @@ export default defineNuxtModule<SwiperModuleOptions>({
         from: 'swiper/vue'
       }
     ]
-
-    // Transpile Runtime
-    nuxt.options.build.transpile.push(runtimePath)
-
-    // Push Core Styles
-    nuxt.options.css.push(`swiper/${styleLang}`)
 
     // Detect if styleLang has been changed
     if (styleLang === 'scss' && !isNodeModules('sass')) {
@@ -71,11 +62,28 @@ export default defineNuxtModule<SwiperModuleOptions>({
         (Array.isArray(modules) && modules.includes(snakeCase as any))
 
       if (hasModule && !['default', 'Swiper'].includes(key)) {
-        // Push Styles for each module
-        nuxt.options.css.push(`swiper/${styleLang}/${snakeCase}`)
+        // Don't import if there is no css.
+        const noCssInModules = [
+          'autoplay',
+          'controller',
+          'effect-coverflow',
+          'pagination',
+          'hash-navigation',
+          'history',
+          'keyboard',
+          'manipulation',
+          'mousewheel',
+          'parallax',
+          'thumbs'
+        ]
+
+        // Push Import Styles for each module
+        if (!noCssInModules.includes(snakeCase)) {
+          cssImports.push(`import 'swiper/${styleLang}/${snakeCase}'`)
+        }
 
         // Import Swiper Modules
-        imports.push({
+        moduleImports.push({
           name: key,
           as: `${prefix}${key}`,
           from: 'swiper'
@@ -84,10 +92,25 @@ export default defineNuxtModule<SwiperModuleOptions>({
     }
 
     // Add Composables imports from `swiper/vue`.
-    addImports(imports)
+    addImports(moduleImports)
 
     // Add Plugin
-    addPlugin(resolve(runtimePath, 'plugin'))
+    addPluginTemplate({
+      filename: 'swiper.mjs',
+      getContents () {
+        const lines = [
+          "import { Swiper, SwiperSlide } from 'swiper/vue'",
+          `export default defineNuxtPlugin((nuxtApp) => {
+            nuxtApp.vueApp.component('Swiper', Swiper)
+            nuxtApp.vueApp.component('SwiperSlide', SwiperSlide)
+          })`
+        ]
+
+        lines.unshift(...cssImports)
+
+        return lines.join('\n')
+      }
+    })
   }
 })
 

@@ -67,7 +67,6 @@ export default defineNuxtModule<SwiperModuleOptions>({
           'autoplay',
           'controller',
           'effect-coverflow',
-          'pagination',
           'hash-navigation',
           'history',
           'keyboard',

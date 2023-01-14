@@ -60,6 +60,9 @@
   },
   "packageManager": "pnpm@7.25.0",
   "release-it": {
+    "hooks": {
+      "after:bump": "pnpm run build"
+    },
     "git": {
       "commitMessage": "chore(release): v${version}"
     },

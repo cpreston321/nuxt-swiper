@@ -1,7 +1,4 @@
 {
   "private": true,
-  "name": "nuxt-swiper-playground",
-  "devDependencies": {
-    "nuxt-swiper": "workspace:*"
-  }
+  "name": "nuxt-swiper-playground"
 }

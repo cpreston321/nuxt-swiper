@@ -1,6 +1,6 @@
 {
   "name": "nuxt-swiper",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "keywords": [
     "vue",
     "nuxt",
@@ -31,7 +31,6 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "pnpm build",
     "build": "nuxt-module-build",
     "dev": "nuxt-module-build --stub && nuxi dev .playground",
     "lint": "eslint --ext .js,.ts,.vue .",
@@ -60,9 +59,6 @@
   },
   "packageManager": "pnpm@7.25.0",
   "release-it": {
-    "hooks": {
-      "after:bump": "pnpm run build"
-    },
     "git": {
       "commitMessage": "chore(release): v${version}"
     },

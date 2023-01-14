@@ -37,6 +37,7 @@
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
     "test": "vitest run",
+    "release": "release-it",
     "prepare": "nuxt-module-build --stub && nuxi prepare .playground"
   },
   "dependencies": {

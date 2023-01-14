@@ -2,10 +2,7 @@ import * as swiper from 'swiper'
 import {
   defineNuxtModule,
   addPluginTemplate,
-  createResolver,
-  useLogger,
-  addImports,
-  isNodeModules
+  addImports
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 
@@ -23,10 +20,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
     modules: '*'
   },
   setup (_options, nuxt) {
-    let { styleLang } = _options
-
-    const logger = useLogger(name)
-    const { prefix, modules } = _options
+    const { styleLang, prefix, modules } = _options
 
     const cssImports = [`import 'swiper/${styleLang}'`]
     const moduleImports = [
@@ -42,14 +36,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
       }
     ]
 
-    // Detect if styleLang has been changed
-    if (styleLang === 'scss' && !isNodeModules('sass')) {
-      styleLang = 'css'
-      logger.warn(
-        '[nuxt-swiper]: You need to install `sass` to use the scss option. Falling back to `css`.'
-      )
-    }
-
+    // Import Each Swiper Module & CSS if it exists.
     for (const [key, _] of Object.entries(swiper)) {
       // Turn key to snake-case.
       const snakeCase: string = key

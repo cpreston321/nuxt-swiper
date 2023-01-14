@@ -30,17 +30,14 @@ export interface SwiperModuleOptions {
    *
    * e.g. `${prefix}Autoplay` -> `SwiperAutoplay`
    *
-   * @default 'Swiper'
+   * @default 'Swiper' - import components from 'swiper/vue' by default
    */
   prefix?: string
 
   /**
    * Which type of lang of styles to import
    *
-   * ! This option is only works when `modules` is
-   * ! an array of modules.
-   *
-   * @default 'css'
+   * @default 'css' - imports css from 'swiper/css' by default
    */
   styleLang?: SwiperStyleLangType
 
@@ -48,9 +45,11 @@ export interface SwiperModuleOptions {
    * Swiper modules to import
    *
    * '*' - imports all modules
-   * '['thumbs', 'lazy']' - imports only thumbs and lazy modules to keep bundle size small
+   * '['thumbs', 'lazy']' - imports only specified modules
    *
-   * @default '*'
+   * @default '*' - imports all modules by default
    */
-  modules?: SwiperModulesType[] | '*'
+  modules?: '*' | SwiperModulesType[]
 }
+
+export {}

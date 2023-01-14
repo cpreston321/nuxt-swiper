@@ -11,102 +11,60 @@ on:
 
 jobs:
   build:
-    if: |
-      !contains(github.event.head_commit.message, 'chore')
-
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
-        node: [16]
         os: [ubuntu-latest]
+        node: [16]
+
+    timeout-minutes: 10
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
+      - uses: actions/checkout@v3
       - run: corepack enable
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          cache: "pnpm"
           node-version: ${{ matrix.node }}
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: Build
         run: pnpm build
 
-      - name: Build Playground
-        run: pnpm dev:build
+      - name: Cache dist
+        uses: actions/cache@v3
+        with:
+          path: packages/*/dist
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-${{ github.sha }}
 
   lint:
-    if: |
-      !contains(github.event.head_commit.message, 'chore')
-
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
-        node: [16]
         os: [ubuntu-latest]
+        node: [16]
+
+    timeout-minutes: 10
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
+      - uses: actions/checkout@v3
       - run: corepack enable
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          cache: "pnpm"
           node-version: ${{ matrix.node }}
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: Lint
         run: pnpm lint
 
   test:
-    if: |
-      !contains(github.event.head_commit.message, 'chore')
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: [16]
-        os: [ubuntu-latest]
-      fail-fast: false
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - run: corepack enable
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: "pnpm"
-          node-version: ${{ matrix.node }}
-
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Run Tests
-        run: pnpm test
-
-  release-build:
-    if: |
-      github.event_name == 'push' &&
-      !contains(github.event.head_commit.message, 'chore')
-    needs:
-      - lint
-      - test
-      - build
-
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -114,12 +72,18 @@ jobs:
         os: [ubuntu-latest]
         node: [16]
 
-    permissions:
-      contents: write
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-      - run: yes | npx bumpp package.json
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test
+        run: pnpm test

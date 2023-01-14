@@ -1,7 +1,7 @@
-import { defineNuxtConfig } from 'nuxt'
 import swiperConfig from './module.config'
+import swiperModule from '../'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-swiper'],
+  modules: [swiperModule],
   swiper: swiperConfig
 })

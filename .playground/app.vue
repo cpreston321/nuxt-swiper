@@ -99,7 +99,7 @@ const fakeArray = ref(colors)
   font-family: 'Roboto', sans-serif;
 }
 .swiper-wrapper {
-  max-width: 100vh;
+  min-width: 100vh;
   width: 100vh;
 }
 .swiper-cards {

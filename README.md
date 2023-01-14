@@ -1,4 +1,4 @@
-<img width="100%" src="./preview/cover.png" alt="Cover Image">
+<img width="100%" src="./cover.png" alt="Cover Image">
 
 <h1 align="center">nuxt-swiper</h1>
 
@@ -6,16 +6,16 @@
 
 <p align="center">
   <a href="https://github.com/cpreston321/nuxt-swiper/actions?query=branch%3Amain+event%3Apush">
-    <img alt="CI" src="https://github.com/cpreston321/nuxt-swiper/actions/workflows/ci.yml/badge.svg?branch=main"/>
+    <img alt="CI" src="https://github.com/cpreston321/nuxt-swiper/actions/workflows/ci.yml/badge.svg?branch=main" />
   </a>
   <a href="https://npmjs.com/package/nuxt-swiper">
-      <img alt="Version" src="https://img.shields.io/npm/v/nuxt-swiper?color=blue&style=flat-square"/>
+      <img alt="Version" src="https://img.shields.io/npm/v/nuxt-swiper?color=blue&style=flat-square" />
   </a>
   <a href="https://npmjs.com/package/nuxt-swiper">
-      <img alt="Downloads" src="https://img.shields.io/npm/dt/nuxt-swiper?color=blue&style=flat-square"/>
+      <img alt="Downloads" src="https://img.shields.io/npm/dt/nuxt-swiper?color=blue&style=flat-square" />
   </a>
   <a href="https://opensource.org/licenses/MIT">
-      <img alt="MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square"/>
+      <img alt="MIT" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" />
   </a>
 </p>
 
@@ -27,7 +27,7 @@
 - 🚀 [Nuxt 3](https://v3.nuxtjs.org) Support
 - Open Source
 - Full Typescript Support
-- ✨ Auto import **Swiper.js** modules + styles.
+- ✨ Auto import **Swiper.js** modules & styles
 - ✨ Just works out of the box.
 
 ## Install
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
     //----------------------
     // prefix: 'Swiper',
     // styleLang: 'css',
-    // modules: ['navigation', 'pagination'],
+    // modules: ['navigation', 'pagination'], // all modules are imported by default
   }
 })
 
@@ -72,8 +72,8 @@ export default defineNuxtConfig({
 
 | Component Name   | Auto Imported |
 | ---------------- | ------------- |
-| `<Swiper/>`      | ✅            |
-| `<SwiperSlide/>` | ✅            |
+| `<Swiper />`      | ✅            |
+| `<SwiperSlide />` | ✅            |
 
 **_Default Prefix: `Swiper`_**
 
@@ -136,32 +136,29 @@ export default defineNuxtConfig({
 ## Module Options
 
 ```ts
-type SwiperEffectType = "slide" | "fade" | "cube" | "coverflow" | "flip";
+type SwiperStyleLangType = 'css' | 'scss'
 type SwiperModulesType =
-  | "a11y"
-  | "autoplay"
-  | "controller"
-  | "free-mode"
-  | "grid"
-  | "hash-navigation"
-  | "history"
-  | "keyboard"
-  | "lazy"
-  | "manipulation"
-  | "mousewheel"
-  | "navigation"
-  | "pagination"
-  | "parallax"
-  | "scrollbar"
-  | "thumbs"
-  | "virtual"
-  | "zoom"
-  | `effect-${SwiperEffectType}`;
+  | 'a11y'
+  | 'autoplay'
+  | 'controller'
+  | 'free-mode'
+  | 'grid'
+  | 'hash-navigation'
+  | 'history'
+  | 'keyboard'
+  | 'lazy'
+  | 'manipulation'
+  | 'mousewheel'
+  | 'navigation'
+  | 'pagination'
+  | 'parallax'
+  | 'scrollbar'
+  | 'thumbs'
+  | 'virtual'
+  | 'zoom'
+  | `effect-${SwiperInterface['effect']}`
 
-/*
- * Main Config interface
- */
-interface SwiperModuleOptions {
+export interface SwiperModuleOptions {
   /**
    * The prefix to use for the Swiper Modules to import.
    * This is useful for importing only the modules you need and
@@ -169,30 +166,30 @@ interface SwiperModuleOptions {
    *
    * e.g. `${prefix}Autoplay` -> `SwiperAutoplay`
    *
-   * @default 'Swiper'
+   * @default 'Swiper' - import components from 'swiper/vue' by default
    */
-  prefix?: string;
+  prefix?: string
 
   /**
    * Which type of lang of styles to import
    *
-   * ! This option is only works when `modules` is
-   * ! an array of modules.
-   *
-   * @default 'css'
+   * @default 'css' - imports css from 'swiper/css' by default
    */
-  styleLang?: "css" | "scss";
+  styleLang?: SwiperStyleLangType
 
   /**
    * Swiper modules to import
    *
    * '*' - imports all modules
-   * '['autoplay', 'effect-cards', 'thumbs', 'lazy']' - imports only these modules to keep bundle size small
+   * '['thumbs', 'lazy']' - imports only specified modules
    *
-   * @default '*'
+   * @default '*' - imports all modules by default
    */
-  modules?: SwiperModulesType[] | "*";
+  modules?: '*' | SwiperModulesType[]
 }
+
+export {}
+
 ```
 
 ## 💻 Development
@@ -228,7 +225,7 @@ cpreston321 - [@cpreston321](https://twitter.com/cpreston321)
 Also, if you like my work, please feel free to [buy me a coffee](https://www.buymeacoffee.com/cpreston321) ☕️
 
 <a href="https://www.buymeacoffee.com/cpreston321" target="_blank">
-  <img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Logo" >
+  <img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Logo">
 </a>
 
 # 🔥 Contributors

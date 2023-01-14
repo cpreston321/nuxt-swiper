@@ -1,4 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
 import swiperConfig from './module.config'
 
 export default defineNuxtConfig({

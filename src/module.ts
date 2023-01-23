@@ -2,7 +2,8 @@ import * as swiper from 'swiper'
 import {
   defineNuxtModule,
   addPluginTemplate,
-  addImports
+  addImports,
+  extendViteConfig
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 
@@ -35,6 +36,19 @@ export default defineNuxtModule<SwiperModuleOptions>({
         from: 'swiper/vue'
       }
     ]
+
+    // Separating Swiper into chunks from Nuxt entry bundle
+    extendViteConfig((viteConfig) => {
+      if (viteConfig.build?.rollupOptions?.manualChunks) {
+        return
+      }
+
+      viteConfig.build!.rollupOptions!.manualChunks = function (id) {
+        if (id.includes('/node_modules/swiper')) {
+          return `vendor-swiper`
+        }
+      }
+    })
 
     // Import Each Swiper Module & CSS if it exists.
     for (const [key, _] of Object.entries(swiper)) {

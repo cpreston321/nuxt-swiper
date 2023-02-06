@@ -3,11 +3,10 @@ import { describe, it, expect } from 'vitest'
 import { setup, $fetch } from '@nuxt/test-utils'
 
 await setup({
-  server: true,
   rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url))
 })
 
-describe('test suite', () => {
+describe('basic fixture', () => {
   it('renders (10) Swiper Slides', async () => {
     const result = await $fetch('/')
     for (let i = 0; i < 10; i++) {

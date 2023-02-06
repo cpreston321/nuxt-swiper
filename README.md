@@ -25,10 +25,16 @@
 ## Features
 
 - 🚀 [Nuxt 3](https://v3.nuxtjs.org) Support
-- Open Source
-- Full Typescript Support
-- ✨ Auto import **Swiper.js** modules & styles
-- ✨ Just works out of the box.
+- 📖 Open Source
+- 🪄 Typescript Support
+- ✨ Auto imports enabled
+- ✨ Just works out of the box like magic ✨
+
+## StackBlitz Demo
+
+> Just want to try it out ? Checkout the demo below.
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/cpreston321/nuxt-swiper/examples/swiper-basic)
 
 ## Install
 

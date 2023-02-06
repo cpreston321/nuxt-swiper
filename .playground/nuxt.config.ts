@@ -3,5 +3,8 @@ import swiperModule from '../'
 
 export default defineNuxtConfig({
   modules: [swiperModule],
-  swiper: swiperConfig
+  swiper: swiperConfig,
+  experimental: {
+    componentIslands: true
+  }
 })

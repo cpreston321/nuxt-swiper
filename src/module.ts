@@ -37,15 +37,19 @@ export default defineNuxtModule<SwiperModuleOptions>({
       }
     ]
 
-    // Separating Swiper into chunks from Nuxt entry bundle
-    extendViteConfig((viteConfig) => {
-      if (viteConfig.build?.rollupOptions?.manualChunks) {
-        return
-      }
+    // Add Manual Chunks for Swiper for Vite.
+    // for a more optimized build.
+    extendViteConfig((config) => {
+      config.build = config.build || {}
+      config.build.rollupOptions = config.build.rollupOptions || {}
+      config.build.rollupOptions.output = config.build.rollupOptions.output || {}
 
-      viteConfig.build!.rollupOptions!.manualChunks = function (id) {
-        if (id.includes('/node_modules/swiper')) {
-          return `vendor-swiper`
+      config.build.rollupOptions.output = {
+        ...config.build.rollupOptions.output,
+        manualChunks: (id) => {
+          if (id.includes('/node_modules/swiper')) {
+            return 'swiper'
+          }
         }
       }
     })

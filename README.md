@@ -100,7 +100,7 @@ export default defineNuxtConfig({
 | `SwiperHashNavigation`  | ✅            |
 | `SwiperHistory`         | ✅            |
 | `SwiperKeyboard`        | ✅            |
-| `SwiperLazy`            | ✅            |
+| `SwiperLazy`            | ❌ - Taken out [Swiper ^9.0.0](https://swiperjs.com/swiper-api#lazy-loading)|
 | `SwiperMousewheel`      | ✅            |
 | `SwiperManipulation`    | ✅            |
 | `SwiperNavigation`      | ✅            |

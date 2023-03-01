@@ -1,8 +1,7 @@
 import swiperConfig from './module.config'
-import swiperModule from '../'
-
+import swiper from '..'
 export default defineNuxtConfig({
-  modules: [swiperModule],
+  modules: [swiper],
   swiper: swiperConfig,
   experimental: {
     componentIslands: true

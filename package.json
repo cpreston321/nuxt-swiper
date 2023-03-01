@@ -41,8 +41,8 @@
     "prepare": "nuxt-module-build && nuxi prepare .playground"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.1.2",
-    "swiper": "^9.0.3"
+    "@nuxt/kit": "^3.2.3",
+    "swiper": "^9.1.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
@@ -50,15 +50,15 @@
     "@nuxtjs/eslint-config-typescript": "latest",
     "@typescript-eslint/parser": "^5.50.0",
     "eslint": "^8.29.0",
-    "nuxt": "^3.1.2",
-    "release-it": "^15.6.0",
+    "nuxt": "^3.2.3",
+    "release-it": "^15.6.1",
     "typescript": "^4.9.5",
-    "vitest": "^0.28.4"
+    "vitest": "^0.29.2"
   },
   "resolutions": {
     "nuxt-swiper": "link:."
   },
-  "packageManager": "pnpm@7.25.0",
+  "packageManager": "pnpm@7.28.0",
   "release-it": {
     "git": {
       "commitMessage": "chore(release): v${version}"

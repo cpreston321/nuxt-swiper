@@ -10,7 +10,6 @@ type SwiperModulesType =
   | 'hash-navigation'
   | 'history'
   | 'keyboard'
-  | 'lazy'
   | 'manipulation'
   | 'mousewheel'
   | 'navigation'

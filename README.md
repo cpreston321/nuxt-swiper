@@ -5,9 +5,6 @@
 <p align="center">Swiper.js built for Nuxt 3 </p>
 
 <p align="center">
-  <a href="https://github.com/cpreston321/nuxt-swiper/actions?query=branch%3Amain+event%3Apush">
-    <img alt="CI" src="https://github.com/cpreston321/nuxt-swiper/actions/workflows/ci.yml/badge.svg?branch=main" />
-  </a>
   <a href="https://npmjs.com/package/nuxt-swiper">
       <img alt="Version" src="https://img.shields.io/npm/v/nuxt-swiper?color=blue&style=flat-square" />
   </a>

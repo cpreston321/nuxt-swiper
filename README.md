@@ -62,13 +62,6 @@ export default defineNuxtConfig({
     // modules: ['navigation', 'pagination'], // all modules are imported by default
   }
 })
-
-// or inline config
-export default defineNuxtConfig({
-  modules: [['nuxt-swiper', {
-    // Swiper options
-  }]]
-})
 ```
 
 ## Usage
@@ -149,7 +142,6 @@ type SwiperModulesType =
   | 'hash-navigation'
   | 'history'
   | 'keyboard'
-  | 'lazy'
   | 'manipulation'
   | 'mousewheel'
   | 'navigation'

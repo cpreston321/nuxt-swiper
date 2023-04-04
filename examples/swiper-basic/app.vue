@@ -42,6 +42,9 @@ const slides = ref(Array.from({ length: 10 }, () => {
       >
         {{ idx }}
       </SwiperSlide>
+
+      <!-- useSwiper() within a swiper instance -->
+      <SwiperControls />
     </Swiper>
     <h2>Swiper Card Effect</h2>
     <Swiper

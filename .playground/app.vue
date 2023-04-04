@@ -61,6 +61,8 @@ const fakeArray = ref(colors)
       >
         {{ idx }}
       </SwiperSlide>
+
+      <SwiperControls />
     </Swiper>
     <h2>Swiper Card Effect</h2>
     <Swiper

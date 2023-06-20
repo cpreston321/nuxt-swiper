@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "nuxt-swiper-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "devDependencies": {
+    "nuxt": "3.5.3",
+    "nuxt-swiper": "latest"
+  }
+}

@@ -18,19 +18,19 @@ const fakeArray = ref(colors)
     :modules="[SwiperAutoplay, SwiperEffectCreative]"
     :slides-per-view="1"
     :loop="true"
-    :effect="'creative'"
+    effect="creative"
     :autoplay="{
       delay: 8000,
-      disableOnInteraction: true
+      disableOnInteraction: true,
     }"
     :creative-effect="{
       prev: {
         shadow: false,
-        translate: ['-20%', 0, -1]
+        translate: ['-20%', 0, -1],
       },
       next: {
-        translate: ['100%', 0, 0]
-      }
+        translate: ['100%', 0, 0],
+      },
     }"
   >
     <SwiperSlide

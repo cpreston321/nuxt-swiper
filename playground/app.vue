@@ -1,5 +1,6 @@
-<script setup>
-import configOptions from '~/module.config'
+<script setup lang="ts">
+// import configOptions from '~/module.config'
+import { ref } from 'vue'
 
 // Fill Array with random rgb values
 const colors = Array.from({ length: 10 }, () => {
@@ -16,7 +17,43 @@ const fakeArray = ref(colors)
 </script>
 
 <template>
-  <div>
+  <h2>Swiper Creative Effect</h2>
+  <swiper-container
+    class="swiper-creative"
+    :slides-per-view="1"
+    :speed="500"
+  >
+    <swiper-slide
+      v-for="(array, idx) in fakeArray"
+      :key="idx"
+      class="swiper-slide"
+      :style="`background-color: ${array.bg}; color: ${array.color}`"
+    >
+      {{ idx }}
+    </swiper-slide>
+  </swiper-container>
+
+  <h2>Swiper Card Effect</h2>
+  <swiper-container
+    class="swiper-cards"
+    :width="240"
+    :slides-per-view="1"
+    :loop="true"
+    effect="cards"
+    :autoplay="{
+      delay: 8000,
+      disableOnInteraction: true,
+    }"
+  >
+    <swiper-slide
+      v-for="(array, idx) in fakeArray"
+      :key="idx"
+      :style="`background-color: ${array.bg}; color: ${array.color}`"
+    >
+      {{ idx }}
+    </swiper-slide>
+  </swiper-container>
+  <!-- <div>
     <h1>nuxt-swiper playground</h1>
     <h3>Options</h3>
     <ul>
@@ -39,11 +76,12 @@ const fakeArray = ref(colors)
       :modules="[SwiperAutoplay, SwiperEffectCreative]"
       :slides-per-view="1"
       :loop="true"
-      :effect="'creative'"
+
       :autoplay="{
         delay: 8000,
         disableOnInteraction: true
       }"
+      :effect="'creative'"
       :creative-effect="{
         prev: {
           shadow: false,
@@ -85,11 +123,11 @@ const fakeArray = ref(colors)
         {{ idx }}
       </SwiperSlide>
     </Swiper>
-  </div>
+  </div> -->
 </template>
 
-<style>
-.swiper-slide {
+<style lang="css">
+swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,15 +138,17 @@ const fakeArray = ref(colors)
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
 }
-.swiper-wrapper {
+
+.swiper-creative .swiper-wrapper {
   min-width: 100vh;
   width: 100vh;
 }
+
 .swiper-cards {
   width: 240px;
   height: 240px;
 }
-.swiper-cards .swiper-slide {
+.swiper-cards swiper-slide {
   border-radius: 6px;
   border: 1px solid black;
 }

@@ -1,4 +1,4 @@
-import * as swiper from 'swiper'
+import * as swiperModulesImports from 'swiper/modules'
 import {
   defineNuxtModule,
   addImports,
@@ -47,7 +47,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
     ]
 
     // Import Each Swiper Module & CSS if it exists.
-    for (const [key, _] of Object.entries(swiper)) {
+    for (const [key, _] of Object.entries(swiperModulesImports)) {
       // Turn key to snake-case.
       const snakeCase: string = key
         .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
@@ -82,7 +82,7 @@ export default defineNuxtModule<SwiperModuleOptions>({
         moduleImports.push({
           name: key,
           as: `${prefix}${key}`,
-          from: 'swiper'
+          from: 'swiper/modules'
         })
       }
     }

@@ -1,4 +1,4 @@
-import { SwiperModuleOptions } from '../src/types'
+import type { ModuleOptions as SwiperModuleOptions } from '../src/module'
 
 export const config: SwiperModuleOptions = {
   prefix: 'Swiper',

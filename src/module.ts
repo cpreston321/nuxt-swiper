@@ -9,7 +9,9 @@ import { name, version } from '../package.json'
 
 import type { SwiperModuleOptions } from './types'
 
-export default defineNuxtModule<SwiperModuleOptions>({
+export interface ModuleOptions extends SwiperModuleOptions {}
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
@@ -121,12 +123,3 @@ export default defineNuxtModule<SwiperModuleOptions>({
     })
   }
 })
-
-declare module '@nuxt/schema' {
-  interface NuxtConfig {
-    swiper?: SwiperModuleOptions
-  }
-  interface NuxtOptions {
-    swiper?: SwiperModuleOptions
-  }
-}

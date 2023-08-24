@@ -21,9 +21,11 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
-    }
+    },
+    "./types": "./dist/types.d.ts"
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
@@ -41,24 +43,24 @@
     "prepare": "nuxt-module-build && nuxi prepare .playground"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.6.3",
-    "swiper": "^10.0.4"
+    "@nuxt/kit": "^3.6.5",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.4.0",
-    "@nuxt/test-utils": "^3.6.3",
+    "@nuxt/test-utils": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.45.0",
-    "nuxt": "^3.6.3",
-    "release-it": "^16.1.2",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "nuxt": "^3.6.5",
+    "release-it": "^16.1.5",
     "typescript": "^5.1.6",
-    "vitest": "^0.33.0"
+    "vitest": "^0.34.2"
   },
   "resolutions": {
     "nuxt-swiper": "link:."
   },
-  "packageManager": "pnpm@8.6.7",
+  "packageManager": "pnpm@8.6.12",
   "release-it": {
     "git": {
       "commitMessage": "chore(release): v${version}"

@@ -1,6 +1,5 @@
-import type { SwiperOptions as SwiperInterface } from 'swiper/types'
-
 type SwiperStyleLangType = 'css' | 'scss'
+type SwiperModuleEffect = 'slide' | 'fade' | 'cube' | 'coverflow' | 'flip' | 'creative' | 'cards'
 type SwiperModulesType =
   | 'a11y'
   | 'autoplay'
@@ -19,7 +18,7 @@ type SwiperModulesType =
   | 'thumbs'
   | 'virtual'
   | 'zoom'
-  | `effect-${SwiperInterface['effect']}`
+  | `effect-${SwiperModuleEffect}`
 
 export interface SwiperModuleOptions {
   /**
@@ -50,5 +49,3 @@ export interface SwiperModuleOptions {
    */
   modules?: '*' | SwiperModulesType[]
 }
-
-export {}

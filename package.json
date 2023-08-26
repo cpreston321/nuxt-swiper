@@ -43,19 +43,19 @@
     "prepare": "nuxt-module-build && nuxi prepare .playground"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.6.5",
+    "@nuxt/kit": "^3.7.0",
     "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.4.0",
-    "@nuxt/test-utils": "^3.6.5",
+    "@nuxt/test-utils": "^3.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@typescript-eslint/parser": "^6.4.1",
-    "eslint": "^8.47.0",
-    "nuxt": "^3.6.5",
+    "eslint": "^8.48.0",
+    "nuxt": "^3.7.0",
     "release-it": "^16.1.5",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
   },
   "resolutions": {
     "nuxt-swiper": "link:."

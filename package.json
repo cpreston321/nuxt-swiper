@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "nuxt-module-build build build",
+    "build": "nuxt-module-build build",
     "dev": "nuxt-module-build build --stub && nuxi dev .playground",
     "dev:build": "nuxt-module-build build --stub && nuxi build .playground",
     "lint": "eslint --ext .js,.ts,.vue .",

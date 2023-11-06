@@ -33,29 +33,29 @@
     "dist"
   ],
   "scripts": {
-    "build": "nuxt-module-build",
-    "dev": "nuxt-module-build --stub && nuxi dev .playground",
-    "dev:build": "nuxt-module-build --stub && nuxi build .playground",
+    "build": "nuxt-module-build build",
+    "dev": "nuxt-module-build build --stub && nuxi dev .playground",
+    "dev:build": "nuxt-module-build build --stub && nuxi build .playground",
     "lint": "eslint --ext .js,.ts,.vue .",
     "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
     "test": "vitest run",
     "release": "release-it",
-    "prepare": "nuxt-module-build && nuxi prepare .playground"
+    "prepare": "nuxt-module-build prepare && nuxi prepare .playground"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.7.0",
-    "swiper": "^10.2.0"
+    "@nuxt/kit": "^3.8.0",
+    "swiper": "^11.0.2"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.4.0",
-    "@nuxt/test-utils": "^3.7.0",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@typescript-eslint/parser": "^6.4.1",
-    "eslint": "^8.48.0",
-    "nuxt": "^3.7.0",
-    "release-it": "^16.1.5",
+    "@nuxt/module-builder": "^0.5.2",
+    "@nuxt/test-utils": "^3.8.0",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "nuxt": "^3.8.0",
+    "release-it": "^16.2.1",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.3"
+    "vitest": "^0.34.6"
   },
   "resolutions": {
     "nuxt-swiper": "link:."

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const slides = ref(Array.from({ length: 10 }, () => {
   const r = Math.floor(Math.random() * 256)
   const g = Math.floor(Math.random() * 256)
@@ -8,49 +8,50 @@ const slides = ref(Array.from({ length: 10 }, () => {
 
   return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast }
 }))
+
+const swiperRef1 = ref(null)
 </script>
 
 <template>
   <div>
     <h1>Nuxt Swiper Basic Example</h1>
     <hr>
-    <h2>Swiper Creative Effect</h2>
-    <Swiper
+    <h2>Creative Effect</h2>
+    <swiper-container
+      ref="swiperRef1"
       :height="300"
-      :modules="[SwiperAutoplay, SwiperEffectCreative]"
       :slides-per-view="1"
       :loop="true"
-      effect="creative"
       :autoplay="{
         delay: 8000,
         disableOnInteraction: true,
       }"
+      effect="creative"
       :creative-effect="{
         prev: {
           shadow: false,
-          translate: ['-20%', 0, -1],
+          translate: ['-20%', 0, -1]
         },
         next: {
-          translate: ['100%', 0, 0],
-        },
+          translate: ['100%', 0, 0]
+        }
       }"
     >
-      <SwiperSlide
+      <swiper-slide
         v-for="(slide, idx) in slides"
         :key="idx"
         :style="`background-color: ${slide.bg}; color: ${slide.color}`"
       >
         {{ idx }}
-      </SwiperSlide>
+      </swiper-slide>
+    </swiper-container>
 
-      <!-- useSwiper() within a swiper instance -->
-      <SwiperControls />
-    </Swiper>
-    <h2>Swiper Card Effect</h2>
-    <Swiper
+    <!-- <SwiperControls :swiperRef="swiperRef1" /> -->
+
+    <h2>Card Effect</h2>
+    <swiper-container
       class="swiper-cards"
       :width="240"
-      :modules="[SwiperAutoplay, SwiperEffectCards]"
       :slides-per-view="1"
       :loop="true"
       effect="cards"
@@ -59,19 +60,19 @@ const slides = ref(Array.from({ length: 10 }, () => {
         disableOnInteraction: true,
       }"
     >
-      <SwiperSlide
+      <swiper-slide
         v-for="(slide, idx) in slides"
         :key="idx"
         :style="`background-color: ${slide.bg}; color: ${slide.color}`"
       >
         {{ idx }}
-      </SwiperSlide>
-    </Swiper>
+      </swiper-slide>
+    </swiper-container>
   </div>
 </template>
 
 <style>
-.swiper-slide {
+swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,15 +82,17 @@ const slides = ref(Array.from({ length: 10 }, () => {
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
 }
-.swiper-wrapper {
+
+.swiper-creative .swiper-wrapper {
   min-width: 100vh;
   width: 100vh;
 }
+
 .swiper-cards {
   width: 240px;
   height: 240px;
 }
-.swiper-cards .swiper-slide {
+.swiper-cards swiper-slide {
   border-radius: 6px;
   border: 1px solid black;
 }

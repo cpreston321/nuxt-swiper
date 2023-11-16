@@ -11,6 +11,6 @@
     "nuxt": "latest"
   },
   "dependencies": {
-    "nuxt-swiper": "latest"
+    "nuxt-swiper": "../../"
   }
 }

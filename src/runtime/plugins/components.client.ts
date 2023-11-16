@@ -1,10 +1,8 @@
-import { register } from 'swiper/element'
-import { defineNuxtPlugin, useRuntimeConfig } from '#imports'
+import { register } from 'swiper/element/bundle'
+import { defineNuxtPlugin } from '#imports'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const config = useRuntimeConfig()
-
-  nuxtApp.hook('app:mounted', () => {
-    register(config.public.swiper.injectStyles)
+  nuxtApp.hook('app:created', () => {
+    register()
   })
 })

@@ -3,18 +3,12 @@ import {
   createResolver,
   defineNuxtModule,
   extendViteConfig,
+  extendWebpackConfig,
+  addImportsDir
 } from '@nuxt/kit'
-import defu from 'defu'
 import { name, version } from '../package.json'
 
-export interface ModuleOptions {
-  /**
-   * Whether to inject the default styles.
-   * Set to `false` if you want to import the styles yourself.
-   * @default true
-   */
-  injectStyles?: boolean
-}
+export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -22,26 +16,20 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'swiper',
   },
-  defaults: {
-    injectStyles: true,
-  },
-  setup(options, nuxt) {
+  defaults: {},
+  setup(_, nuxt) {
     const resolver = createResolver(import.meta.url)
 
+    // Add logic to resolve custom element from swiper
     const isCustomElement = nuxt.options.vue.compilerOptions.isCustomElement
     nuxt.options.vue.compilerOptions.isCustomElement = (tag: string) =>
       tag.startsWith('swiper-') || isCustomElement?.(tag) || false
 
-    // Expose Swiper Options to Runtime Config
-    // so that it can be used in the plugin.
-    nuxt.options.runtimeConfig.public = defu(nuxt.options.runtimeConfig.public, {
-      swiper: {
-        injectStyles: options.injectStyles,
-      },
-    })
-
     if (nuxt.options.vue.runtimeCompiler)
       addPlugin(resolver.resolve('./runtime/plugins/custom-elements'))
+
+    // Register Swiper Composables
+    addImportsDir(resolver.resolve('./runtime/composables'))
 
     // Register Web Components & Types
     addPlugin(resolver.resolve('./runtime/plugins/components.client'))

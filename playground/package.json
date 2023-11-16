@@ -8,7 +8,6 @@
     "generate": "nuxi generate"
   },
   "devDependencies": {
-    "nuxt": "3.5.3",
-    "nuxt-swiper": "latest"
+    "nuxt": "latest"
   }
 }

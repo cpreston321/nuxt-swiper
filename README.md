@@ -44,46 +44,24 @@ export default defineNuxtConfig({
 
 ## Usage
 
-| Pascal Case    | Kebab Case |
-| ----------------- | ----------- |
-| `<SwiperContainer />`|`<swiper-container/>` |
-| `<SwiperSlide />` | `<swiper-slide />`    |
+| Kebab Case |
+| ----------- |
+| `<swiper-container/>` |
+| `<swiper-slide />`    |
 
 ```vue
 <script setup lang="ts">
-  const slides = ref(
-    // Create an array of 10 random colors that look like 
-    // [{ bg: 'rgb(0, 0, 0)', color: 'white' }, ...}]
-    Array.from({ length: 10 }, () => {
-      const r = Math.floor(Math.random() * 256)
-      const g = Math.floor(Math.random() * 256)
-      const b = Math.floor(Math.random() * 256)
-      // Figure out contrast color for font
-      const contrast = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? 'black' : 'white'
-
-      return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast }
-    })
-  )
+  const slides = ref(Array.from({ length: 10 }))
 </script>
 
 <template>
-  <swiper-container
-    class="swiper-cards"
-    :width="240"
-    :slides-per-view="1"
-    :loop="true"
-    effect="cards"
-    :autoplay="{
-      delay: 8000,
-      disableOnInteraction: true,
-    }"
-  >
+  <swiper-container :loop="true">
     <swiper-slide
-      v-for="(array, idx) in fakeArray"
+      v-for="(slide, idx) in slides"
       :key="idx"
-      :style="`background-color: ${array.bg}; color: ${array.color}`"
+      :style="`background-color: rgb(32, 233, 70); color: white;`"
     >
-      {{ idx }}
+      SLIDE {{ idx }}
     </swiper-slide>
   </swiper-container>
 </template>
@@ -98,15 +76,6 @@ swiper-slide {
   font-size: 4rem;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
-}
-
-.swiper-cards {
-  width: 240px;
-  height: 240px;
-}
-.swiper-cards swiper-slide {
-  border-radius: 6px;
-  border: 1px solid black;
 }
 </style>
 ```

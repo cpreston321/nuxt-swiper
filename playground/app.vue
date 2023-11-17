@@ -13,37 +13,26 @@ const colors = Array.from({ length: 10 }, () => {
   return { bg: `rgb(${r}, ${g}, ${b})`, color: contrast }
 })
 
-const fakeArray = ref(colors)
+const slides = ref(colors)
 
 const swiperRef = ref(null)
 const swiper1 = useSwiper(swiperRef)
 </script>
 
 <template>
-  <h2>Swiper Creative Effect</h2>
+  <h2>Swiper Basic</h2>
   <swiper-container
     ref="swiperRef"
-    class="swiper-creative"
-    :slides-per-view="1"
-    :speed="500"
-    effect="creative"
-    :creative-effect="{
-      prev: {
-        shadow: false,
-        translate: ['-20%', 0, -1]
-      },
-      next: {
-        translate: ['100%', 0, 0]
-      }
-    }"
+    class="swiper-basic"
+    :loop="true"
   >
     <swiper-slide
-      v-for="(array, idx) in fakeArray"
+      v-for="(slide, idx) in slides"
       :key="idx"
       class="swiper-slide"
-      :style="`background-color: ${array.bg}; color: ${array.color}`"
+      :style="`background-color: ${slide.bg}; color: ${slide.color};`"
     >
-      {{ idx }}
+      SLIDE {{ idx + 1 }}
     </swiper-slide>
   </swiper-container>
 
@@ -63,11 +52,11 @@ const swiper1 = useSwiper(swiperRef)
     }"
   >
     <swiper-slide
-      v-for="(array, idx) in fakeArray"
+      v-for="(slide, idx) in slides"
       :key="idx"
-      :style="`background-color: ${array.bg}; color: ${array.color}`"
+      :style="`background-color: ${slide.bg}; color: ${slide.color};`"
     >
-      {{ idx }}
+      {{ idx + 1 }}
     </swiper-slide>
   </swiper-container>
 </template>
@@ -84,7 +73,7 @@ swiper-slide {
   font-family: 'Roboto', sans-serif;
 }
 
-.swiper-creative .swiper-wrapper {
+.swiper-basic .swiper-wrapper {
   min-width: 100vh;
   width: 100vh;
 }

@@ -47,12 +47,12 @@ export default defineNuxtConfig({
 
 ## Usage
 
-### Module Options
-
 | Swiper Components (WebComponent) |
 | -------------------------------- |
 | `<swiper-container/>`     |
 | `<swiper-slide />`        |
+
+### Module Options
 
 ```ts
 export interface ModuleOptions {

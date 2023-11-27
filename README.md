@@ -8,7 +8,7 @@
 > ***Nuxt Swiper*** utilizes Swiper.js as its foundation using it's web components. Please ensure that you read the Swiper.js [documentation](https://swiperjs.com/element) before utilizing this module and reporting any issues that are not directly related to Nuxt Swiper. If there is an underlying bug, please submit an issue to the Swiper.js [repository](https://github.com/nolimits4web/swiper/issues).
 
 > [!NOTE]
-> If you want to learn how to use web components in Vue.js please refer to the docs here: [Vue.js Web Components](https://vuejs.org/guide/extras/web-components.html)
+> If you want to learn how to use web components in **Vue.js** please refer to the docs here: [Vue.js Web Components](https://vuejs.org/guide/extras/web-components.html)
 
 ## Features
 
@@ -45,7 +45,14 @@ export default defineNuxtConfig({
 })
 ```
 
-## Module Options
+## Usage
+
+### Module Options
+
+| Swiper Components (WebComponent) |
+| -------------------------------- |
+| `<swiper-container/>`     |
+| `<swiper-slide />`        |
 
 ```ts
 export interface ModuleOptions {
@@ -64,12 +71,7 @@ export interface ModuleOptions {
 }
 ```
 
-## Usage
-
-| Swiper Components (WebComponent) |
-| -------------------------------- |
-| `<swiper-container/>`     |
-| `<swiper-slide />`        |
+### Basic Usuage
 
 ```vue
 <script setup lang="ts">
@@ -143,7 +145,7 @@ pnpm run lint
 
 [`Swiper.js`](https://swiperjs.com/) is developed by [@nolimits4web](https://github.com/nolimits4web).
 
-[`nuxt-swiper`](#nuxt-swiper) is developed by [@cpreston321](https://github.com/cpreston321).
+[`Nuxt Swiper`](#nuxt-swiper) is developed by [@cpreston321](https://github.com/cpreston321).
 
 ## 📧 Contact
 

@@ -1,4 +1,4 @@
 packages:
-  - 'playground'
+  - playground
   - 'test/fixtures/*'
   - '!examples/swiper-basic'

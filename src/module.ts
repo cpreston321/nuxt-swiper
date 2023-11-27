@@ -1,14 +1,26 @@
 import {
+  addImportsDir,
   addPlugin,
   createResolver,
   defineNuxtModule,
   extendViteConfig,
-  extendWebpackConfig,
-  addImportsDir
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  /**
+   * Enable custom Swiper composables to help you access Swiper instance.
+   * @example ```ts
+   * // Access Swiper instance
+   * const swiperRef = ref<null>(null)
+   * const swiper = useSwiper(swiperRef)
+   *
+   * const next = () => swiper.next()
+   * ```
+   * @default true
+   */
+  enableComposables?: boolean
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -16,8 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'swiper',
   },
-  defaults: {},
-  setup(_, nuxt) {
+  defaults: {
+    enableComposables: true,
+  },
+  setup(opts, nuxt) {
     const resolver = createResolver(import.meta.url)
 
     // Add logic to resolve custom element from swiper
@@ -28,8 +42,9 @@ export default defineNuxtModule<ModuleOptions>({
     if (nuxt.options.vue.runtimeCompiler)
       addPlugin(resolver.resolve('./runtime/plugins/custom-elements'))
 
-    // Register Swiper Composables
-    addImportsDir(resolver.resolve('./runtime/composables'))
+    // Register Swiper Composables if enabled
+    if (opts.enableComposables)
+      addImportsDir(resolver.resolve('./runtime/composables'))
 
     // Register Web Components & Types
     addPlugin(resolver.resolve('./runtime/plugins/components.client'))

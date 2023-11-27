@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  swiperRef: Object as any
+  swiperRef: Object as any,
 })
 const swiper = useSwiper(props.swiperRef)
 </script>

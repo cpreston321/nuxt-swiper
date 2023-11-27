@@ -5,7 +5,10 @@
 [![License](https://img.shields.io/npm/l/nuxt-swiper?style=flat-square)](/LICENSE)
 
 > [!IMPORTANT]
-> ***Nuxt Swiper*** utilizes Swiper.js as its foundation. Please ensure that you read the Swiper.js [documentation](https://swiperjs.com/element) before utilizing this module and reporting any issues that are not directly related to Nuxt Swiper. If there is an underlying bug, please submit an issue to the Swiper.js [repository](https://github.com/nolimits4web/swiper/issues).
+> ***Nuxt Swiper*** utilizes Swiper.js as its foundation using it's web components. Please ensure that you read the Swiper.js [documentation](https://swiperjs.com/element) before utilizing this module and reporting any issues that are not directly related to Nuxt Swiper. If there is an underlying bug, please submit an issue to the Swiper.js [repository](https://github.com/nolimits4web/swiper/issues).
+
+> [!NOTE]
+> If you want to learn how to use web components in Vue.js please refer to the docs here: [Vue.js Web Components](https://vuejs.org/guide/extras/web-components.html)
 
 ## Features
 
@@ -38,32 +41,69 @@ bun add nuxt-swiper
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['nuxt-swiper']
+  modules: ['nuxt-swiper'],
 })
+```
+
+## Module Options
+
+```ts
+export interface ModuleOptions {
+  /**
+   * Enable custom Swiper composables to help you access Swiper instance.
+   * @example ```ts
+   * // Access Swiper instance
+   * const swiperRef = ref<null>(null)
+   * const swiper = useSwiper(swiperRef)
+   *
+   * const next = () => swiper.next()
+   * ```
+   * @default true
+   */
+  enableComposables?: boolean
+}
 ```
 
 ## Usage
 
-| Kebab Case |
-| ----------- |
-| `<swiper-container/>` |
-| `<swiper-slide />`    |
+| Swiper Components (WebComponent) |
+| -------------------------------- |
+| `<swiper-container/>`     |
+| `<swiper-slide />`        |
 
 ```vue
 <script setup lang="ts">
-  const slides = ref(Array.from({ length: 10 }))
+// Create 10 slides
+const containerRef = ref(null)
+const slides = ref(Array.from({ length: 10 }))
+
+const swiper = useSwiper(containerRef)
+
+onMounted(() => {
+  // Access Swiper instance
+  // Read more about Swiper instance: https://swiperjs.com/swiper-api#methods--properties
+  console.log(swiper.instance)
+})
 </script>
 
 <template>
-  <swiper-container :loop="true">
+  <swiper-container ref="containerRef" :loop="true">
     <swiper-slide
       v-for="(slide, idx) in slides"
       :key="idx"
-      :style="`background-color: rgb(32, 233, 70); color: white;`"
+      style="background-color: rgb(32, 233, 70); color: white;"
     >
-      SLIDE {{ idx }}
+      Slide {{ idx + 1 }}
     </swiper-slide>
   </swiper-container>
+  <!-- Go back one slide -->
+  <button @click="swiper.prev()">
+    Prev
+  </button>
+  <!-- Go forward one slide -->
+  <button @click="swiper.next()">
+    Next
+  </button>
 </template>
 
 <style lang="css">
@@ -82,14 +122,26 @@ swiper-slide {
 
 ## 💻 Development
 
-- Clone this repository
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `pnpm install --shamefully-hoist`
-- Open playground with `pnpm dev`
+```sh
+# Install dependencies
+pnpm install
+
+# Generate type stubs
+pnpm run dev:prepare
+
+# Develop with the playground
+pnpm run dev
+
+# Build the playground
+pnpm run dev:build
+
+# Run ESLint
+pnpm run lint
+```
 
 ## Credits
 
-[`swiper.js`](https://swiperjs.com/) is developed by [@nolimits4web](https://github.com/nolimits4web).
+[`Swiper.js`](https://swiperjs.com/) is developed by [@nolimits4web](https://github.com/nolimits4web).
 
 [`nuxt-swiper`](#nuxt-swiper) is developed by [@cpreston321](https://github.com/cpreston321).
 

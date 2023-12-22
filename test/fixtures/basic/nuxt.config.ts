@@ -1,3 +1,3 @@
 export default defineNuxtConfig({
-  modules: ['nuxt-swiper'],
+  modules: ['../../../src/module'],
 })

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
+
 // Fill Array with random rgb values
 const slides = ref(
   Array.from({ length: 10 }, (_, idx) => {
@@ -27,7 +29,7 @@ const slides = ref(
       :key="`slide-${slide.id}`"
       :style="`background-color: ${slide.bg}; color: ${slide.color}`"
     >
-      {{ idx }}
+      {{ slide.id }}
     </swiper-slide>
   </swiper-container>
 </template>

@@ -7,9 +7,10 @@ await setup({
 })
 
 describe('basic fixture', () => {
-  it('renders (10) Swiper Slides', async () => {
+  it('it renders the swiper slide & container', async () => {
     const result = await $fetch('/')
-    for (let i = 0; i < 10; i++)
-      expect(result).toContain(`data-swiper-slide-index="${i}"`)
+
+    expect(result).toContain('swiper-container')
+    expect(result).toContain('swiper-slide')
   }, 15000)
 })

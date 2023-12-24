@@ -53,7 +53,7 @@ pnpm add nuxt-swiper
 import { defineNuxtModule } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-swiper']
+  modules: ['nuxt-swiper'],
   swiper: {
     // Swiper options
     //----------------------

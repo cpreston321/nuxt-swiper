@@ -105,15 +105,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <swiper-container ref="containerRef" :loop="true">
-    <swiper-slide
-      v-for="(slide, idx) in slides"
-      :key="idx"
-      style="background-color: rgb(32, 233, 70); color: white;"
-    >
-      Slide {{ idx + 1 }}
-    </swiper-slide>
-  </swiper-container>
+  <ClientOnly>
+    <swiper-container ref="containerRef">
+      <swiper-slide
+        v-for="(slide, idx) in slides"
+        :key="idx"
+        style="background-color: rgb(32, 233, 70); color: white;"
+      >
+        Slide {{ idx + 1 }}
+      </swiper-slide>
+    </swiper-container>
+  </ClientOnly>
+
   <!-- Go back one slide -->
   <button @click="swiper.prev()">
     Prev
@@ -168,15 +171,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <swiper-container ref="containerRef" :init="false">
-    <swiper-slide
-      v-for="(slide, idx) in slides"
-      :key="idx"
-      style="background-color: rgb(32, 233, 70); color: white;"
-    >
-      Slide {{ idx + 1 }}
-    </swiper-slide>
-  </swiper-container>
+  <ClientOnly>
+    <swiper-container ref="containerRef" :init="false">
+      <swiper-slide
+        v-for="(slide, idx) in slides"
+        :key="idx"
+        style="background-color: rgb(32, 233, 70); color: white;"
+      >
+        Slide {{ idx + 1 }}
+      </swiper-slide>
+    </swiper-container>
+  </ClientOnly>
 </template>
 
 <style lang="css">

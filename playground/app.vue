@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useSwiper } from '#imports'
+import { useAppConfig, useSwiper } from '#imports'
+
+const appConfig = useAppConfig()
 
 const slides = ref(
   Array.from({ length: 10 }, (_, idx) => {
@@ -47,6 +49,7 @@ useSwiper(swiperCreativeRef, {
 
 <template>
   <main>
+    <h1>Bundled: {{ appConfig.__swiper.bundled }}</h1>
     <div class="swiper-wrapper">
       <h2>Basic</h2>
       <div class="swiper-wrapper__inner">
@@ -112,7 +115,27 @@ useSwiper(swiperCreativeRef, {
       <h2>Creative Effect</h2>
       <div class="swiper-wrapper__inner">
         <ClientOnly>
-          <swiper-container ref="swiperCreativeRef" class="swiper-creative" :loop="true" :init="false">
+          <swiper-container
+            ref="swiperCreativeRef"
+            class="swiper-creative"
+            :loop="true"
+            :init="false"
+            effect="creative"
+            :autoplay="{
+              delay: 8000,
+              disableOnInteraction: true,
+            }"
+            :creative-effect="{
+              prev: {
+                translate: ['-125%', 0, -800],
+                rotate: [0, 0, -90],
+              },
+              next: {
+                translate: ['125%', 0, -800],
+                rotate: [0, 0, 90],
+              },
+            }"
+          >
             <swiper-slide
               v-for="slide in slides"
               :key="`slide-creative-${slide.id}`"

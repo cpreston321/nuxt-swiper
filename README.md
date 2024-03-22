@@ -58,16 +58,32 @@ export default defineNuxtConfig({
 export interface ModuleOptions {
   /**
    * Enable custom Swiper composables to help you access Swiper instance.
-   * @example ```ts
-   * // Access Swiper instance
+   * @example ```vue
+   * <script setup>
    * const swiperRef = ref<null>(null)
-   * const swiper = useSwiper(swiperRef)
+   * const swiper = useSwiper(swiperRef, { loop: true, autoplay: { delay: 5000 })
    *
    * const next = () => swiper.next()
+   * </script>
+   *
+   * <template>
+   *  <swiper-container ref="swiperRef" :init="false">
+   *    <swiper-slide>Slide 1</swiper-slide>
+   *    <swiper-slide>Slide 2</swiper-slide>
+   *  </swiper-container>
+   * </template>
    * ```
    * @default true
    */
   enableComposables?: boolean
+
+  /**
+   * Bundle Swiper custom elements.
+   * if disabled, you need to import swiper css and modules manually.
+   * @see https://swiperjs.com/element#core-version--modules
+   * @default true
+   */
+  bundled?: boolean
 }
 ```
 
@@ -122,24 +138,74 @@ swiper-slide {
 </style>
 ```
 
+## Advanced Usage
+
+```vue
+<script setup lang="ts">
+const containerRef = ref(null)
+const slides = ref(Array.from({ length: 10 }))
+const swiper = useSwiper(containerRef, {
+  effect: 'creative',
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  creativeEffect: {
+    prev: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+    next: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+  },
+})
+
+onMounted(() => {
+  console.log(swiper.instance)
+})
+</script>
+
+<template>
+  <swiper-container ref="containerRef" :init="false">
+    <swiper-slide
+      v-for="(slide, idx) in slides"
+      :key="idx"
+      style="background-color: rgb(32, 233, 70); color: white;"
+    >
+      Slide {{ idx + 1 }}
+    </swiper-slide>
+  </swiper-container>
+</template>
+
+<style lang="css">
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 20vh;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+</style>
+```
+
 ## 💻 Development
 
-```sh
-# Install dependencies
-pnpm install
+<details>
+  <summary>Local development</summary>
 
-# Generate type stubs
-pnpm run dev:prepare
+- Clone this repository
+- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+- Install dependencies using `pnpm install`
+- Generate type stubs using `pnpm dev:prepare`
+- Run tests using `pnpm dev`
 
-# Develop with the playground
-pnpm run dev
-
-# Build the playground
-pnpm run dev:build
-
-# Run ESLint
-pnpm run lint
-```
+</details>
 
 ## Credits
 

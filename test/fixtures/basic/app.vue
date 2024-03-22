@@ -16,20 +16,22 @@ const slides = ref(
 </script>
 
 <template>
-  <swiper-container
-    :slides-per-view="1"
-    :loop="true"
-    :autoplay="{
-      delay: 8000,
-      disableOnInteraction: true,
-    }"
-  >
-    <swiper-slide
-      v-for="slide in slides"
-      :key="`slide-${slide.id}`"
-      :style="`background-color: ${slide.bg}; color: ${slide.color}`"
+  <ClientOnly>
+    <swiper-container
+      :slides-per-view="1"
+      :loop="true"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true,
+      }"
     >
-      {{ slide.id }}
-    </swiper-slide>
-  </swiper-container>
+      <swiper-slide
+        v-for="slide in slides"
+        :key="`slide-${slide.id}`"
+        :style="`background-color: ${slide.bg}; color: ${slide.color}`"
+      >
+        {{ slide.id }}
+      </swiper-slide>
+    </swiper-container>
+  </ClientOnly>
 </template>

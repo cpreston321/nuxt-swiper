@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useSwiper } from '#imports'
+import { useAppConfig, useSwiper } from '#imports'
+
+const appConfig = useAppConfig()
 
 const slides = ref(
   Array.from({ length: 10 }, (_, idx) => {
@@ -21,26 +23,51 @@ const slides = ref(
 const swiperBasicRef = ref(null)
 const swiperCreativeRef = ref(null)
 const swiper1 = useSwiper(swiperBasicRef)
+
+/**
+ * Pass in options to the useSwiper hook to customize the swiper instance
+ * then automatically bind the swiper instance to the ref
+ */
+useSwiper(swiperCreativeRef, {
+  effect: 'creative',
+  autoplay: {
+    delay: 8000,
+    disableOnInteraction: true,
+  },
+  creativeEffect: {
+    prev: {
+      translate: ['-125%', 0, -800],
+      rotate: [0, 0, -90],
+    },
+    next: {
+      translate: ['125%', 0, -800],
+      rotate: [0, 0, 90],
+    },
+  },
+})
 </script>
 
 <template>
   <main>
+    <h1>Bundled: {{ appConfig.__swiper.bundled }}</h1>
     <div class="swiper-wrapper">
       <h2>Basic</h2>
       <div class="swiper-wrapper__inner">
-        <swiper-container
-          class="swiper-basic"
-          :loop="true"
-        >
-          <swiper-slide
-            v-for="slide in slides"
-            :key="`slide-basic-${slide.id}`"
-            class="swiper-slide"
-            :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+        <ClientOnly>
+          <swiper-container
+            class="swiper-basic"
+            :loop="true"
           >
-            {{ slide.id }}
-          </swiper-slide>
-        </swiper-container>
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-basic-${slide.id}`"
+              class="swiper-slide"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
       </div>
     </div>
 
@@ -50,72 +77,75 @@ const swiper1 = useSwiper(swiperBasicRef)
       <div
         class="swiper-wrapper__inner"
       >
-        <swiper-container
-          ref="swiperBasicRef"
-          class="swiper-basic"
-          :loop="true"
-        >
-          <div slot="container-start">
-            Slot component before wrapper
-          </div>
-          <div slot="container-end">
-            Slot component after wrapper
-          </div>
-          <swiper-slide
-            v-for="slide in slides"
-            :key="`slide-basic-${slide.id}`"
-            class="swiper-slide"
-            :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+        <ClientOnly>
+          <swiper-container
+            ref="swiperBasicRef"
+            class="swiper-basic"
+            :loop="true"
           >
-            {{ slide.id }}
-          </swiper-slide>
-        </swiper-container>
+            <div slot="container-start">
+              Slot component before wrapper
+            </div>
+            <div slot="container-end">
+              Slot component after wrapper
+            </div>
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-basic-${slide.id}`"
+              class="swiper-slide"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
 
-        <div class="swiper-basic-buttons">
-          <button @click="swiper1.prev()">
-            Prev
-          </button>
-          <button @click="swiper1.next()">
-            Next
-          </button>
-        </div>
+          <div class="swiper-basic-buttons">
+            <button @click="swiper1.prev()">
+              Prev
+            </button>
+            <button @click="swiper1.next()">
+              Next
+            </button>
+          </div>
+        </ClientOnly>
       </div>
     </div>
 
     <div class="swiper-wrapper">
-      <h2>Creative Effect (NOT WORKING ATM)</h2>
+      <h2>Creative Effect</h2>
       <div class="swiper-wrapper__inner">
-        <swiper-container
-          ref="swiperCreativeRef"
-          class="swiper-creative"
-          :loop="true"
-          effect="creative"
-          :creative-effect.prop="{
-            prev: {
-              shadow: true,
-              translate: ['-125%', 0, -800],
-              rotate: [0, 0, -90],
-            },
-            next: {
-              shadow: true,
-              translate: ['125%', 0, -800],
-              rotate: [0, 0, 90],
-            },
-          }"
-          :autoplay="{
-            delay: 8000,
-            disableOnInteraction: true,
-          }"
-        >
-          <swiper-slide
-            v-for="slide in slides"
-            :key="`slide-creative-${slide.id}`"
-            class="swiper-slide"
-            :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+        <ClientOnly>
+          <swiper-container
+            ref="swiperCreativeRef"
+            class="swiper-creative"
+            :loop="true"
+            :init="false"
+            effect="creative"
+            :autoplay="{
+              delay: 8000,
+              disableOnInteraction: true,
+            }"
+            :creative-effect="{
+              prev: {
+                translate: ['-125%', 0, -800],
+                rotate: [0, 0, -90],
+              },
+              next: {
+                translate: ['125%', 0, -800],
+                rotate: [0, 0, 90],
+              },
+            }"
           >
-            {{ slide.id }}
-          </swiper-slide>
-        </swiper-container>
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-creative-${slide.id}`"
+              class="swiper-slide"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
       </div>
     </div>
 
@@ -123,25 +153,27 @@ const swiper1 = useSwiper(swiperBasicRef)
       <h2>Card Effect</h2>
 
       <div class="swiper-wrapper__inner">
-        <swiper-container
-          class="swiper-cards"
-          :width="240"
-          :slides-per-view="1"
-          :loop="true"
-          effect="cards"
-          :autoplay="{
-            delay: 8000,
-            disableOnInteraction: true,
-          }"
-        >
-          <swiper-slide
-            v-for="slide in slides"
-            :key="`slide-card-${slide.id}`"
-            :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+        <ClientOnly>
+          <swiper-container
+            class="swiper-cards"
+            :width="240"
+            :slides-per-view="1"
+            :loop="true"
+            effect="cards"
+            :autoplay="{
+              delay: 8000,
+              disableOnInteraction: true,
+            }"
           >
-            {{ slide.id }}
-          </swiper-slide>
-        </swiper-container>
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-card-${slide.id}`"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
       </div>
     </div>
   </main>

@@ -1,7 +1,7 @@
 {
   "name": "nuxt-swiper",
   "type": "module",
-  "version": "2.0.0-0",
+  "version": "2.0.0-1",
   "packageManager": "pnpm@8.15.5",
   "author": {
     "name": "cpreston321 <https://christianpreston.com>",

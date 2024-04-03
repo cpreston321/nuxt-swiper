@@ -36,14 +36,7 @@
 ## Install
 
 ```bash
-# npm
-npm install nuxt-swiper
-
-# yarn
-yarn add nuxt-swiper
-
-#pnpm
-pnpm add nuxt-swiper
+npx nuxi@latest module add swiper
 ```
 
 ## Setup

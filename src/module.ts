@@ -105,7 +105,7 @@ export default defineNuxtModule<ModuleOptions>({
     addImports(moduleImports)
 
     // Add CSS Imports to the nuxt option.
-    nuxt.options.css = [...nuxt.options.css, ...cssImports]
+    nuxt.options.css.push(...cssImports)
 
     // Add Manual Chunks for Swiper for Vite.
     // for a more optimized build.

@@ -1,6 +1,6 @@
-import { computed, nextTick, onMounted, watch } from 'vue'
 import type { SwiperContainer } from 'swiper/element'
 import type { Ref } from 'vue'
+import { computed, nextTick, onMounted, watch } from 'vue'
 
 /**
  * This is a utility function that allows you to use the Swiper instance directly.

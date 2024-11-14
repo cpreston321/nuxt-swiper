@@ -6,6 +6,15 @@ import {
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 
+declare module '@nuxt/schema' {
+  interface AppConfigInput {
+    /* Readonly: only for module use  */
+    __swiper?: Readonly<{
+      bundled: boolean
+    }>
+  }
+}
+
 export interface ModuleOptions {
   /**
    * Enable custom Swiper composables to help you access Swiper instance.
@@ -53,7 +62,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.appConfig = {
       ...nuxt.options.appConfig,
       __swiper: {
-        bundled: opts.bundled,
+        bundled: opts?.bundled ?? true,
       },
     }
 

@@ -23,29 +23,16 @@
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/cpreston321/nuxt-swiper/tree/main/examples/swiper-basic?file=app.vue)
 
-### Step 1: Install and add to Nuxt
+### Step 1: Install module
 
 ```bash
-# npm
-npm install nuxt-swiper
-
-# yarn
-yarn add nuxt-swiper
-
-#pnpm
-pnpm add nuxt-swiper
-
-#bun
-bun add nuxt-swiper
-```
-
-```ts
-export default defineNuxtConfig({
-  modules: ['nuxt-swiper'],
-})
+npx nuxi@latest module add swiper
 ```
 
 ## Usage
+
+> [!INFO]
+> Since these are web components, they use the kebab-case naming convention vs the camelCase naming convention that Vue uses.
 
 | Swiper Components (WebComponent) |
 | -------------------------------- |
@@ -55,7 +42,7 @@ export default defineNuxtConfig({
 ### Module Options
 
 ```ts
-export interface ModuleOptions {
+interface ModuleOptions {
   /**
    * Enable custom Swiper composables to help you access Swiper instance.
    * @example ```vue
@@ -232,4 +219,4 @@ Also, if you like my work, please feel free to [buy me a coffee](https://www.buy
 
 ---
 
-[MIT](./LICENSE) License © 2023 [CP](https://github.com/cpreston321)
+[MIT](./LICENSE) License © 2024 [CP](https://github.com/cpreston321)

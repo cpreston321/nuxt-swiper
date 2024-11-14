@@ -1,7 +1,4 @@
 {
-  "private": true,
   "name": "fixture-basic",
-  "devDependencies": {
-    "nuxt-swiper": "workspace:*"
-  }
+  "private": true
 }

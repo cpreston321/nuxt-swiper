@@ -7,10 +7,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "nuxt": "latest"
-  },
   "dependencies": {
     "nuxt-swiper": "latest"
+  },
+  "devDependencies": {
+    "nuxt": "latest"
   }
 }

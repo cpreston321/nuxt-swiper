@@ -1,3 +1,4 @@
 packages:
-  - '!examples/swiper-basic/*'
+  - playground
   - 'test/fixtures/*'
+  - '!examples/swiper-basic'

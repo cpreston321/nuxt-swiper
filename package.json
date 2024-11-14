@@ -1,6 +1,15 @@
 {
   "name": "nuxt-swiper",
-  "version": "1.2.2",
+  "type": "module",
+  "version": "2.0.0",
+  "packageManager": "pnpm@8.15.5",
+  "author": {
+    "name": "cpreston321 <https://christianpreston.com>",
+    "url": "https://github.com/cpreston321"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/cpreston321/nuxt-swiper#readme",
+  "repository": "cpreston321/nuxt-swiper",
   "keywords": [
     "vue",
     "nuxt",
@@ -11,21 +20,12 @@
     "slides",
     "slickjs alternative"
   ],
-  "license": "MIT",
-  "type": "module",
-  "repository": "cpreston321/nuxt-swiper",
-  "homepage": "https://github.com/cpreston321/nuxt-swiper#readme",
-  "author": {
-    "name": "cpreston321 <https://christianpreston.com>",
-    "url": "https://github.com/cpreston321"
-  },
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
-    },
-    "./types": "./dist/types.d.ts"
+    }
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
@@ -33,34 +33,32 @@
     "dist"
   ],
   "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "build": "nuxt-module-build build",
-    "dev": "nuxt-module-build build --stub && nuxi dev .playground",
-    "dev:build": "nuxt-module-build build --stub && nuxi build .playground",
-    "lint": "eslint --ext .js,.ts,.vue .",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "test": "vitest run",
+    "test:watch": "vitest watch",
     "release": "release-it",
-    "prepare": "nuxt-module-build prepare && nuxi prepare .playground"
+    "cleanup": "npx rimraf node_modules dist .nuxt **/node_modules/** **/.nuxt/**"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.8.0",
-    "swiper": "^11.0.2"
+    "@nuxt/kit": "^3.14.159",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.5.2",
-    "@nuxt/test-utils": "^3.8.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "eslint": "^8.52.0",
-    "nuxt": "^3.8.0",
-    "release-it": "^16.2.1",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
+    "@antfu/eslint-config": "^3.8.0",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/test-utils": "^3.14.0",
+    "eslint": "^9.14.0",
+    "nuxt": "^3.14.159",
+    "release-it": "^17.10.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
   },
-  "resolutions": {
-    "nuxt-swiper": "link:."
-  },
-  "packageManager": "pnpm@8.6.12",
   "release-it": {
     "git": {
       "commitMessage": "chore(release): v${version}"

@@ -31,7 +31,7 @@ npx nuxi@latest module add swiper
 
 ## Usage
 
-> [!INFO]
+> [!NOTE]
 > Since these are web components, they use the kebab-case naming convention vs the camelCase naming convention that Vue uses.
 
 | Swiper Components (WebComponent) |

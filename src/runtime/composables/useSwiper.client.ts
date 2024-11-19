@@ -1,6 +1,7 @@
 import type { SwiperContainer } from 'swiper/element'
+import type { Swiper } from 'swiper/types'
 import type { Ref } from 'vue'
-import { computed, nextTick, onMounted, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 
 /**
  * This is a utility function that allows you to use the Swiper instance directly.
@@ -9,7 +10,7 @@ import { computed, nextTick, onMounted, watch } from 'vue'
  * @param options - Swiper options to merge with the default options if the `swiper` instance is not yet created.
  */
 export function useSwiper(swiperContainerRef: Ref<SwiperContainer | null>, options?: SwiperContainer['swiper']['params']) {
-  const swiper = computed(() => swiperContainerRef?.value?.swiper ?? null)
+  const swiper = ref<Swiper>()
 
   /**
    * Run transition to next slide.
@@ -82,6 +83,7 @@ export function useSwiper(swiperContainerRef: Ref<SwiperContainer | null>, optio
       Object.assign(swiperContainerRef.value, options)
       swiperContainerRef.value?.initialize()
     }
+    swiper.value = swiperContainerRef?.value?.swiper
   }
 
   watch(swiper, () => checkSwiperRef())

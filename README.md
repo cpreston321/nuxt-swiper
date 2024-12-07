@@ -74,7 +74,7 @@ interface ModuleOptions {
 }
 ```
 
-### Basic Usuage
+### Basic Usage
 
 ```vue
 <script setup lang="ts">

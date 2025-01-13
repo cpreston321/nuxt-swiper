@@ -12,8 +12,8 @@ importers:
         specifier: ^3.14.1592
         version: 3.14.1592(magicast@0.3.5)(rollup@3.29.5)
       swiper:
-        specifier: ^11.1.15
-        version: 11.1.15
+        specifier: ^11.2.1
+        version: 11.2.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.9.1
@@ -8814,8 +8814,8 @@ packages:
       picocolors: 1.1.1
     dev: true
 
-  /swiper@11.1.15:
-    resolution: {integrity: sha512-IzWeU34WwC7gbhjKsjkImTuCRf+lRbO6cnxMGs88iVNKDwV+xQpBCJxZ4bNH6gSrIbbyVJ1kuGzo3JTtz//CBw==}
+  /swiper@11.2.1:
+    resolution: {integrity: sha512-62G69+iQRIfUqTmJkWpZDcX891Ra8O9050ckt1/JI2H+0483g+gq0m7gINecDqMtDh2zt5dK+uzBRxGhGOOvQA==}
     engines: {node: '>= 4.7.0'}
     dev: false
 

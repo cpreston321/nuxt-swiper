@@ -54,7 +54,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/test-utils": "^3.14.0",
     "eslint": "^9.14.0",
-    "nuxt": "^3.14.1592",
+    "nuxt": "^3.16.0",
     "release-it": "^17.10.0",
     "typescript": "^5.6.3",
     "vitest": "^2.1.5"

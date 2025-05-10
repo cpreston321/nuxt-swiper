@@ -1,7 +1,28 @@
 {
   "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
     "TypeScript": {
-      "prettier": { "allowed": false },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "formatter": {
+        "external": {
+          "command": "cat << EOF",
+          "arguments": []
+        }
+      }
+    },
+    "Vue.js": {
+      "formatter": {
+        "external": {
+          "command": "cat << EOF",
+          "arguments": []
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.eslint": true
       }

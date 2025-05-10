@@ -1,4 +1,8 @@
 packages:
   - playground
-  - 'test/fixtures/*'
+  - test/fixtures/*
   - '!examples/swiper-basic'
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - unrs-resolver

@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/npm/l/nuxt-swiper?style=flat-square)](/LICENSE)
 
 > [!IMPORTANT]
-> ***Nuxt Swiper*** utilizes Swiper.js as its foundation using it's web components. Please ensure that you read the Swiper.js [documentation](https://swiperjs.com/element) before utilizing this module and reporting any issues that are not directly related to Nuxt Swiper. If there is an underlying bug, please submit an issue to the Swiper.js [repository](https://github.com/nolimits4web/swiper/issues).
+> ***Nuxt Swiper*** utilizes Swiper.js as its foundation using its web components. Please ensure that you read the Swiper.js [documentation](https://swiperjs.com/element) before utilizing this module and reporting any issues that are not directly related to Nuxt Swiper. If there is an underlying bug, please submit an issue to the Swiper.js [repository](https://github.com/nolimits4web/swiper/issues).
 
 > [!NOTE]
 > If you want to learn how to use web components in **Vue.js** please refer to the docs here: [Vue.js Web Components](https://vuejs.org/guide/extras/web-components.html)
@@ -219,4 +219,4 @@ Also, if you like my work, please feel free to [buy me a coffee](https://www.buy
 
 ---
 
-[MIT](./LICENSE) License © 2024 [CP](https://github.com/cpreston321)
+[MIT](./LICENSE) License © 2025 [CP](https://github.com/cpreston321)

@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { useAppConfig, useSwiper } from "#imports";
-import { ref } from "vue";
+import { useAppConfig, useSwiper } from '#imports'
+import { ref } from 'vue'
 
-const appConfig = useAppConfig();
+const appConfig = useAppConfig()
 
 const slides = ref(
   Array.from({ length: 10 }, (_, idx) => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
 
-    const contrast =
-      r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "black" : "white";
+    const contrast
+      = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? 'black' : 'white'
 
     return {
       id: idx + 1,
       bg: `rgb(${r}, ${g}, ${b})`,
       color: contrast,
-    };
+    }
   }),
-);
+)
 
-const swiperBasicRef = ref(null);
-const swiperCreativeRef = ref(null);
-const swiper1 = useSwiper(swiperBasicRef);
+const swiperBasicRef = ref(null)
+const swiperCreativeRef = ref(null)
+const swiper1 = useSwiper(swiperBasicRef)
 
 /**
  * Pass in options to the useSwiper hook to customize the swiper instance
  * then automatically bind the swiper instance to the ref
  */
-// useSwiper(swiperCreativeRef, {
-//   effect: 'creative',
-//   autoplay: {
-//     delay: 8000,
-//     disableOnInteraction: true,
-//   },
-//   creativeEffect: {
-//     prev: {
-//       translate: ['-125%', 0, -800],
-//       rotate: [0, 0, -90],
-//     },
-//     next: {
-//       translate: ['125%', 0, -800],
-//       rotate: [0, 0, 90],
-//     },
-//   },
-// })
+useSwiper(swiperCreativeRef, {
+  effect: 'creative',
+  autoplay: {
+    delay: 8000,
+    disableOnInteraction: true,
+  },
+  creativeEffect: {
+    prev: {
+      translate: ['-125%', 0, -800],
+      rotate: [0, 0, -90],
+    },
+    next: {
+      translate: ['125%', 0, -800],
+      rotate: [0, 0, 90],
+    },
+  },
+})
 </script>
 
 <template>
@@ -70,6 +70,28 @@ const swiper1 = useSwiper(swiperBasicRef);
     </div>
 
     <div class="swiper-wrapper">
+      <h2>Basic w/ Custom Pagination</h2>
+      <div class="swiper-wrapper__inner">
+        <ClientOnly>
+          <swiper-container
+            class="swiper-basic" :loop="true" :pagination="{
+              clickable: true,
+            }"
+          >
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-basic-${slide.id}`"
+              class="swiper-slide"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
+      </div>
+    </div>
+
+    <div class="swiper-wrapper">
       <h2>Basic w/ Slots & Custom Navigation</h2>
 
       <div class="swiper-wrapper__inner">
@@ -79,8 +101,12 @@ const swiper1 = useSwiper(swiperBasicRef);
             class="swiper-basic"
             :loop="true"
           >
-            <div slot="container-start">Slot component before wrapper</div>
-            <div slot="container-end">Slot component after wrapper</div>
+            <div slot="container-start">
+              Slot component before wrapper
+            </div>
+            <div slot="container-end">
+              Slot component after wrapper
+            </div>
             <swiper-slide
               v-for="slide in slides"
               :key="`slide-basic-${slide.id}`"
@@ -92,8 +118,12 @@ const swiper1 = useSwiper(swiperBasicRef);
           </swiper-container>
 
           <div class="swiper-basic-buttons">
-            <button @click="swiper1.prev()">Prev</button>
-            <button @click="swiper1.next()">Next</button>
+            <button @click="swiper1.prev()">
+              Prev
+            </button>
+            <button @click="swiper1.next()">
+              Next
+            </button>
           </div>
         </ClientOnly>
       </div>
@@ -253,5 +283,18 @@ swiper-slide {
 .swiper-cards swiper-slide {
   border-radius: 6px;
   border: 1px solid black;
+}
+
+swiper-container::part(bullet) {
+  background-color: #FFF;
+  height: 2px;
+  width: 0.625rem;
+  opacity: 1;
+}
+
+swiper-container::part(bullet-active) {
+  background-color: #000;
+  height: 2px;
+  width: 0.625rem;
 }
 </style>

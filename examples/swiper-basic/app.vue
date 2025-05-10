@@ -69,6 +69,28 @@ useSwiper(swiperCreativeRef, {
     </div>
 
     <div class="swiper-wrapper">
+      <h2>Basic w/ Custom Pagination</h2>
+      <div class="swiper-wrapper__inner">
+        <ClientOnly>
+          <swiper-container
+            class="swiper-basic" :loop="true" :pagination="{
+              clickable: true,
+            }"
+          >
+            <swiper-slide
+              v-for="slide in slides"
+              :key="`slide-basic-${slide.id}`"
+              class="swiper-slide"
+              :style="`background-color: ${slide.bg}; color: ${slide.color};`"
+            >
+              {{ slide.id }}
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
+      </div>
+    </div>
+
+    <div class="swiper-wrapper">
       <h2>Basic w/ Slots & Custom Navigation</h2>
 
       <div

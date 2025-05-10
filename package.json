@@ -2,7 +2,7 @@
   "name": "nuxt-swiper",
   "type": "module",
   "version": "2.0.0",
-  "packageManager": "pnpm@8.15.5",
+  "packageManager": "pnpm@10.10.0",
   "author": {
     "name": "cpreston321 <https://christianpreston.com>",
     "url": "https://github.com/cpreston321"
@@ -46,18 +46,18 @@
     "cleanup": "npx rimraf node_modules dist .nuxt **/node_modules/** **/.nuxt/**"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.14.1592",
-    "swiper": "^11.1.15"
+    "@nuxt/kit": "^3.17.2",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.9.1",
-    "@nuxt/module-builder": "^0.8.4",
-    "@nuxt/test-utils": "^3.14.0",
-    "eslint": "^9.14.0",
-    "nuxt": "^3.14.1592",
+    "@antfu/eslint-config": "^3.12.0",
+    "@nuxt/module-builder": "^1.0.1",
+    "@nuxt/test-utils": "^3.15.1",
+    "eslint": "^9.17.0",
+    "nuxt": "^3.17.2",
     "release-it": "^17.10.0",
-    "typescript": "^5.6.3",
-    "vitest": "^2.1.5"
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.8"
   },
   "release-it": {
     "git": {

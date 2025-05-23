@@ -135,6 +135,15 @@ export function useSwiper(
     swiper.value = swiperContainerRef?.value?.swiper
   }
 
+  const reInitialize = () => {
+    if (!swiperContainerRef.value) {
+      console.warn('Swiper container not found')
+      return
+    }
+    
+    swiperContainerRef.value.initialize()
+  }
+
   watch(swiper, () => checkSwiperRef())
   onMounted(() => nextTick(() => _initialize()))
 
@@ -157,5 +166,6 @@ export function useSwiper(
     prev,
     to,
     reset,
+    reInitialize
   }
 }

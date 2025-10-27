@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.17.2",
-    "swiper": "^11.2.6"
+    "swiper": "^12.0.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.0",

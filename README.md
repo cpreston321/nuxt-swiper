@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=cpreston321&project=nuxt-swiper&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 # Nuxt Swiper
 
 [![npm](https://img.shields.io/npm/v/nuxt-swiper?style=flat-square)](https://www.npmjs.com/package/nuxt-swiper/)

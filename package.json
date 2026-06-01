@@ -54,7 +54,7 @@
     "@nuxt/test-utils": "^4.0.3",
     "nuxt": "^4.4.5",
     "oxfmt": "^0.50.0",
-    "oxlint": "^1.65.0",
+    "oxlint": "^1.67.0",
     "release-it": "^20.0.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"

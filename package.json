@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^4.4.5",
-    "swiper": "^12.1.4"
+    "swiper": "^12.2.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^1.0.2",

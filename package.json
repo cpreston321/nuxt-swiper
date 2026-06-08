@@ -46,7 +46,7 @@
     "cleanup": "npx rimraf node_modules dist .nuxt **/node_modules/** **/.nuxt/**"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.4.5",
+    "@nuxt/kit": "^4.4.7",
     "swiper": "^12.1.4"
   },
   "devDependencies": {

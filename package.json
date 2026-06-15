@@ -52,7 +52,7 @@
   "devDependencies": {
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/test-utils": "^4.0.3",
-    "nuxt": "^4.4.5",
+    "nuxt": "^4.4.8",
     "oxfmt": "^0.50.0",
     "oxlint": "^1.65.0",
     "release-it": "^20.0.1",
